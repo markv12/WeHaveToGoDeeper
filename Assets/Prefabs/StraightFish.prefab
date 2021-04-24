@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishT: {fileID: 4314740828734658299}
   endPosition: {x: 92.28513, y: 4.7862062}
-  speed: 5
+  speed: 20
 --- !u!1 &4314740828734658298
 GameObject:
   m_ObjectHideFlags: 0
