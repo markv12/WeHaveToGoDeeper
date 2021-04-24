@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MainMenuUI : MonoBehaviour {
     void Start() {
-        DeathPointsLoader.Instance.GetDeathPoints();
+        DeathPointsLoader.Instance.EnsureDeathPoints();
     }
 
     void Update() {
