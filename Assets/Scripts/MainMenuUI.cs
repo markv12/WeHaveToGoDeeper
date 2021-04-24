@@ -1,11 +1,17 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour {
-    void Start() {
+
+    public Button startButton;
+
+    private void Awake() {
+        startButton.onClick.AddListener(StartGame);
         DeathPointsLoader.Instance.EnsureDeathPoints();
-    }
+        SessionData.playerName = "A Player";
 
-    void Update() {
-
+        void StartGame() {
+            SceneLoader.Instance.LoadScene("GameScene");
+        }
     }
 }

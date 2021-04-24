@@ -20,12 +20,12 @@ public class Player : MonoBehaviour {
             return health;
         }
         set {
-            if(value < health) {
+            if (value < health) {
                 CameraShaker.instance.HitCameraShake();
             }
             health = value;
             UIManager.instance.ShowHealthAmount(((float)health) / ((float)MAX_HEALTH));
-            if(health <= 0) {
+            if (health <= 0) {
                 Die();
             }
         }
@@ -51,12 +51,14 @@ public class Player : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Hurt")){
+        if (collision.gameObject.CompareTag("Hurt")) {
             Health -= 25;
         }
     }
 
     private void Die() {
-        Debug.Log("You Died");
+        string nameToUse = string.IsNullOrWhiteSpace(SessionData.playerName) ? "Some Poor Soul" : SessionData.playerName;
+        DeathPointsLoader.Instance.AddDeathPoint(6.9f, 6.9f, nameToUse);
+        Health = MAX_HEALTH; // for now
     }
 }
