@@ -17,7 +17,7 @@ public class Thruster : MonoBehaviour {
             UIManager.instance.SetChargeBarAmount(thrustAmount);
         }
     }
-    public const float MAX_THRUST = 1000;
+    public float maxThrust = 1000;
     public const float THRUST_PER_SECOND = 1f;
 
     public float cameraDistance;
@@ -66,6 +66,6 @@ public class Thruster : MonoBehaviour {
     public float Release() {
         float result = ThrustAmount;
         ThrustAmount = 0;
-        return result * MAX_THRUST;
+        return result * maxThrust;
     }
 }

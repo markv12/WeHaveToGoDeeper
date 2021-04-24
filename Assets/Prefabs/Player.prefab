@@ -133,6 +133,7 @@ MonoBehaviour:
   rgd: {fileID: 602236858403226556}
   thruster: {fileID: 602236858883990701}
   mainCollider: {fileID: 602236858403226557}
+  brakeStrength: 3
 --- !u!50 &602236858403226556
 Rigidbody2D:
   serializedVersion: 4
@@ -299,3 +300,5 @@ MonoBehaviour:
   thrusterT: {fileID: 602236858883990702}
   ownerT: {fileID: 602236858403226558}
   theCamera: {fileID: 0}
+  maxThrust: 1000
+  cameraDistance: 0

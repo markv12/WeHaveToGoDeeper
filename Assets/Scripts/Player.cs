@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
     public Thruster thruster;
     public Collider2D mainCollider;
 
-    private const int BRAKE_STRENGTH = 3;
+    public int brakeStrength = 3;
     private const int MAX_HEALTH = 100;
     private int health = MAX_HEALTH;
     private int Health {
@@ -37,16 +37,16 @@ public class Player : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) {
             thruster.ChargeUp(Time.deltaTime * Thruster.THRUST_PER_SECOND);
         }
-        if (Input.GetMouseButtonUp(0)) {
+        if (Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.Space)) {
             float thrustAmount = thruster.Release();
             //Debug.Log(thrustAmount);
             rgd.AddForce(thruster.ThrustDirection * thrustAmount);
         }
-        if (Input.GetKey(KeyCode.Space)) {
-            rgd.velocity *= 1-(Time.deltaTime * BRAKE_STRENGTH);
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {
+            rgd.velocity *= 1-(Time.deltaTime * brakeStrength);
         }
     }
 
