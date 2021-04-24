@@ -11,6 +11,7 @@ public class DeathPointsLoader : Singleton<DeathPointsLoader> {
     bool hasLoaded = false;
 
     public void AddDeathPoint(float x, float y, string name) {
+        deathPoints.Add(new DeathPoint(x, y, name));
         StartCoroutine(AddDeathPointToServer(x, y, name));
     }
 
@@ -22,7 +23,7 @@ public class DeathPointsLoader : Singleton<DeathPointsLoader> {
     IEnumerator LoadDeathPointsFromServer() {
         hasLoaded = true;
         //Debug.Log("Loading death points for level " + levelName);
-        string url = "http://ld48-server.herokuapp.com/deaths/get/" + levelName;
+        string url = "https://ld48-server.herokuapp.com/deaths/get/" + levelName;
 
         using UnityWebRequest webRequest = UnityWebRequest.Get(url);
         yield return webRequest.SendWebRequest();
@@ -40,7 +41,8 @@ public class DeathPointsLoader : Singleton<DeathPointsLoader> {
     IEnumerator AddDeathPointToServer(float x, float y, string name) {
         //Debug.Log("Adding death point for level " + levelName);
 
-        string url = "http://ld48-server.herokuapp.com/deaths/add/" + levelName + "/" + x.ToString() + "/" + y.ToString() + "/" + name;
+
+        string url = "https://ld48-server.herokuapp.com/deaths/add/" + levelName + "/" + x.ToString() + "/" + y.ToString() + "/" + name;
         //Debug.Log(url);
 
         using UnityWebRequest webRequest = UnityWebRequest.Get(url);
@@ -49,7 +51,6 @@ public class DeathPointsLoader : Singleton<DeathPointsLoader> {
         bool success = WebRequestErrorHandler(webRequest);
         if (!success) yield break;
 
-        deathPoints.Add(new DeathPoint(x, y, name));
 
         //Debug.Log("Added new death point");
         //deathPoints.ForEach(delegate (DeathPoint p) {
