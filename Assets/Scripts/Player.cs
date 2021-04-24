@@ -37,6 +37,8 @@ public class Player : MonoBehaviour {
     }
 
     void Update() {
+        if (DeathUIManager.instance.shown) return;
+
         if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) {
             thruster.ChargeUp(Time.deltaTime * Thruster.THRUST_PER_SECOND);
             ApplyBrake();
@@ -46,7 +48,9 @@ public class Player : MonoBehaviour {
             //Debug.Log(thrustAmount);
             rgd.AddForce(thruster.ThrustDirection * thrustAmount);
         }
-
+        if (Input.GetKeyUp(KeyCode.Backspace)) {
+            Die();
+        }
         bool brakePressed = Input.GetMouseButton(1) || Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         if (brakePressed) {
             ApplyBrake();
@@ -65,12 +69,9 @@ public class Player : MonoBehaviour {
 
     private void Die() {
         string nameToUse = string.IsNullOrWhiteSpace(SessionData.playerName) ? "Some Poor Soul" : SessionData.playerName;
-        DeathPointsLoader.Instance.AddDeathPoint(6.9f, 6.9f, nameToUse);
-
-
-
+        DeathPointsLoader.Instance.AddDeathPoint(transform.position.x, transform.position.y, nameToUse);
+        DeathUIManager.instance.Show();
 
         Health = MAX_HEALTH; // for now
-
     }
 }
