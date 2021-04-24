@@ -133,7 +133,7 @@ MonoBehaviour:
   rgd: {fileID: 602236858403226556}
   thruster: {fileID: 602236858883990701}
   mainCollider: {fileID: 602236858403226557}
-  brakeStrength: 3
+  brakeStrength: 2
 --- !u!50 &602236858403226556
 Rigidbody2D:
   serializedVersion: 4
@@ -147,7 +147,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.4
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -196,8 +196,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602236858665261739}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.5, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 602236858883990702}
   m_RootOrder: 0
@@ -300,5 +300,5 @@ MonoBehaviour:
   thrusterT: {fileID: 602236858883990702}
   ownerT: {fileID: 602236858403226558}
   theCamera: {fileID: 0}
-  maxThrust: 1000
+  maxThrust: 2500
   cameraDistance: 0
