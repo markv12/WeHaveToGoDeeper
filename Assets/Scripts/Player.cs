@@ -45,8 +45,8 @@ public class Player : MonoBehaviour {
             //Debug.Log(thrustAmount);
             rgd.AddForce(thruster.ThrustDirection * thrustAmount);
         }
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {
-            rgd.velocity *= 1 - (Time.deltaTime * brakeStrength);
+        if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {
+            rgd.velocity *= 1-(Time.deltaTime * brakeStrength);
         }
     }
 
