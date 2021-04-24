@@ -12,7 +12,7 @@ public class ScoresLoader : Singleton<ScoresLoader> {
     }
 
     public IEnumerator LoadBestScoresFromServer(Action<List<HighScore>> callback) {
-        string url = "http://ld48-server.herokuapp.com/score/best/" + levelName + "/bottom/5";
+        string url = "https://ld48-server.herokuapp.com/score/best/" + levelName + "/bottom/5";
 
         using UnityWebRequest webRequest = UnityWebRequest.Get(url);
         yield return webRequest.SendWebRequest();
@@ -31,7 +31,7 @@ public class ScoresLoader : Singleton<ScoresLoader> {
     IEnumerator AddHighScoreToServer(float score, string name) {
         Debug.Log("Adding score for user " + name);
 
-        string url = "http://ld48-server.herokuapp.com/score/add/" + levelName + "/" + name + "/" + score.ToString();
+        string url = "https://ld48-server.herokuapp.com/score/add/" + levelName + "/" + name + "/" + score.ToString();
 
         using UnityWebRequest webRequest = UnityWebRequest.Get(url);
         yield return webRequest.SendWebRequest();
