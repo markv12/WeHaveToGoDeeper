@@ -34,7 +34,7 @@ public class DeathPointsLoader : Singleton<DeathPointsLoader> {
         DeathPoints dp = JsonUtility.FromJson<DeathPoints>(highScoreString);
         deathPoints = dp.list();
 
-        Debug.Log("Received " + deathPoints.Count + " death points");
+        //Debug.Log("Received " + deathPoints.Count + " death points");
     }
 
     IEnumerator AddDeathPointToServer(float x, float y, string name) {
@@ -51,7 +51,7 @@ public class DeathPointsLoader : Singleton<DeathPointsLoader> {
 
         deathPoints.Add(new DeathPoint(x, y, name));
 
-        Debug.Log("Added new death point");
+        //Debug.Log("Added new death point");
         //deathPoints.ForEach(delegate (DeathPoint p) {
         //  p.print();
         //});

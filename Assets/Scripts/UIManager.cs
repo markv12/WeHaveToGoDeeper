@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class UIManager : MonoBehaviour {
 
@@ -9,9 +11,18 @@ public class UIManager : MonoBehaviour {
     public Image chargeBar;
     public Image healthBar;
 
+    public TMP_Text dialogueText;
+    public RectTransform dialogueBox;
+    public AudioClip typingClip;
+    public AudioSource[] typingSounds;
+    public float typingVolume = 1;
+    private int nextTypeSource = 0;
+    private DialogueVertexAnimator utility;
+
     private void Awake() {
         instance = this;
         DeathPointsLoader.Instance.EnsureDeathPoints();
+        utility = new DialogueVertexAnimator(dialogueText, null, PlayFromNextSource);
     }
 
     public void SetChargeBarAmount(float amount) {
@@ -25,5 +36,37 @@ public class UIManager : MonoBehaviour {
         this.CreateAnimationRoutine(0.3f, delegate (float progress) {
             healthBar.fillAmount = Easing.easeInOutSine(startAmount, amount, progress);
         });
+    }
+
+
+    private Coroutine typeRoutine = null;
+    private const float MIN_HEIGHT = 225;
+    private bool Type(string message, Action onFinish) {
+        this.EnsureCoroutineStopped(ref typeRoutine);
+        utility.textAnimating = false;
+        List<DialogueCommand> commands = DialogueUtility.ProcessInputString(message, out string totalTextMessage);
+        SetTextBoxHeight(totalTextMessage);
+        bool hasText = totalTextMessage.Length > 0;
+        if (hasText) {
+            typeRoutine = StartCoroutine(utility.AnimateTextIn(commands, totalTextMessage, typingClip, onFinish));
+        } else {
+            utility.HandleNonTextCommandsOnly(commands);
+        }
+        return hasText;
+    }
+
+    private void SetTextBoxHeight(string totalTextMessage) {
+        dialogueText.text = totalTextMessage;
+        float height = Mathf.Max(MIN_HEIGHT, dialogueText.preferredHeight + 32);
+        dialogueBox.sizeDelta = new Vector2(dialogueBox.sizeDelta.x, height);
+        dialogueText.text = "";
+    }
+
+    public void PlayFromNextSource(AudioClip clip) {
+        AudioSource nextSource = typingSounds[nextTypeSource];
+        nextSource.clip = clip;
+        nextSource.volume = typingVolume;
+        nextSource.Play();
+        nextTypeSource = (nextTypeSource + 1) % typingSounds.Length;
     }
 }
