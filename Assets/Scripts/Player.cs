@@ -66,6 +66,11 @@ public class Player : MonoBehaviour {
     private void Die() {
         string nameToUse = string.IsNullOrWhiteSpace(SessionData.playerName) ? "Some Poor Soul" : SessionData.playerName;
         DeathPointsLoader.Instance.AddDeathPoint(6.9f, 6.9f, nameToUse);
+
+
+
+
         Health = MAX_HEALTH; // for now
+
     }
 }
