@@ -5,98 +5,99 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class DeathPointsLoader : Singleton<DeathPointsLoader> {
-  public List<DeathPoint> deathPoints;
+    public List<DeathPoint> deathPoints;
 
-  readonly string levelName = "test";
-  bool hasLoaded = false;
+    readonly string levelName = "test";
+    bool hasLoaded = false;
 
-  public void AddDeathPoint(float x, float y, string name) {
-    StartCoroutine(AddDeathPointToServer(x, y, name));
-  }
-
-  public void EnsureDeathPoints() {
-    if (!hasLoaded) 
-      StartCoroutine(LoadDeathPointsFromServer());
-  }
-
-  IEnumerator LoadDeathPointsFromServer() {
-    hasLoaded = true;
-    Debug.Log("Loading death points for level " + levelName);
-    string url = "http://ld48-server.herokuapp.com/deaths/get/" + levelName;
-
-    using UnityWebRequest webRequest = UnityWebRequest.Get(url);
-    yield return webRequest.SendWebRequest();
-
-    if (webRequest.result == UnityWebRequest.Result.ConnectionError)
-      Debug.Log("Network Error: " + webRequest.error);
-
-    else if (webRequest.downloadHandler.text.Substring(0, 1) == "<")
-      Debug.Log("Network Error: 404 " + webRequest.downloadHandler.text);
-
-    else if (webRequest.downloadHandler.text == "Forbidden"
-      || webRequest.downloadHandler.text == "Internal Server Error") {
-      Debug.Log("Network Error: " + webRequest.downloadHandler.text);
-      deathPoints = new List<DeathPoint>();
+    public void AddDeathPoint(float x, float y, string name) {
+        StartCoroutine(AddDeathPointToServer(x, y, name));
     }
-    else {
-      string highScoreString = "{\"deathPoints\":" + webRequest.downloadHandler.text + "}";
-      DeathPoints dp = JsonUtility.FromJson<DeathPoints>(highScoreString);
-      deathPoints = dp.list();
 
-      Debug.Log("Received " + deathPoints.Count + " death points");
+    public void EnsureDeathPoints() {
+        if (!hasLoaded)
+            StartCoroutine(LoadDeathPointsFromServer());
     }
-  }
 
-  IEnumerator AddDeathPointToServer(float x, float y, string name) {
-    Debug.Log("Adding death point for level " + levelName);
+    IEnumerator LoadDeathPointsFromServer() {
+        hasLoaded = true;
+        //Debug.Log("Loading death points for level " + levelName);
+        string url = "http://ld48-server.herokuapp.com/deaths/get/" + levelName;
 
-    string url = "http://ld48-server.herokuapp.com/deaths/add/" + levelName + "/" + x.ToString() + "/" + y.ToString() + "/" + name;
+        using UnityWebRequest webRequest = UnityWebRequest.Get(url);
+        yield return webRequest.SendWebRequest();
 
-    using UnityWebRequest webRequest = UnityWebRequest.Get(url);
-    yield return webRequest.SendWebRequest();
+        if (webRequest.result == UnityWebRequest.Result.ConnectionError)
+            Debug.Log("Network Error: " + webRequest.error);
 
-    if (webRequest.result == UnityWebRequest.Result.ConnectionError) 
-      Debug.Log("Network Error: " + webRequest.error);
-    
-    else if (webRequest.downloadHandler.text.Substring(0, 1) == "<") 
-      Debug.Log("Network Error: 404 " + webRequest.downloadHandler.text);
-    
-    else if (webRequest.downloadHandler.text == "Forbidden"
-      || webRequest.downloadHandler.text == "Internal Server Error") {
-      Debug.Log("Network Error: " + webRequest.downloadHandler.text);
+        else if (webRequest.downloadHandler.text.Substring(0, 1) == "<")
+            Debug.Log("Network Error: 404");
+
+        else if (webRequest.downloadHandler.text == "Forbidden"
+          || webRequest.downloadHandler.text == "Internal Server Error") {
+            Debug.Log("Network Error: " + webRequest.downloadHandler.text);
+            deathPoints = new List<DeathPoint>();
+        }
+        else {
+            string highScoreString = "{\"deathPoints\":" + webRequest.downloadHandler.text + "}";
+            DeathPoints dp = JsonUtility.FromJson<DeathPoints>(highScoreString);
+            deathPoints = dp.list();
+
+            Debug.Log("Received " + deathPoints.Count + " death points");
+        }
     }
-    else {
-      deathPoints.Add(new DeathPoint(x, y, name));
 
-      Debug.Log("Added new death point");
-      deathPoints.ForEach(delegate (DeathPoint p) {
-        p.print();
-      });
+    IEnumerator AddDeathPointToServer(float x, float y, string name) {
+        //Debug.Log("Adding death point for level " + levelName);
+
+        string url = "http://ld48-server.herokuapp.com/deaths/add/" + levelName + "/" + x.ToString() + "/" + y.ToString() + "/" + name;
+        Debug.Log(url);
+
+        using UnityWebRequest webRequest = UnityWebRequest.Get(url);
+        yield return webRequest.SendWebRequest();
+
+        if (webRequest.result == UnityWebRequest.Result.ConnectionError)
+            Debug.Log("Network Error: " + webRequest.error);
+
+        else if (webRequest.downloadHandler.text.Substring(0, 1) == "<")
+            Debug.Log("Network Error: 404");
+
+        else if (webRequest.downloadHandler.text == "Forbidden"
+          || webRequest.downloadHandler.text == "Internal Server Error") {
+            Debug.Log("Network Error: " + webRequest.downloadHandler.text);
+        }
+        else {
+            deathPoints.Add(new DeathPoint(x, y, name));
+
+            Debug.Log("Added new death point");
+            //deathPoints.ForEach(delegate (DeathPoint p) {
+            //  p.print();
+            //});
+        }
     }
-  }
 }
 
 [Serializable]
 public struct DeathPoints {
-  public DeathPoint[] deathPoints;
+    public DeathPoint[] deathPoints;
 
-  public List<DeathPoint> list() {
-    return new List<DeathPoint>(deathPoints);
-  }
+    public List<DeathPoint> list() {
+        return new List<DeathPoint>(deathPoints);
+    }
 }
 
 [Serializable]
 public class DeathPoint {
-  public float x, y;
-  public string name;
+    public float x, y;
+    public string name;
 
-  public DeathPoint(float _x, float _y, string _name) {
-    x = _x;
-    y = _y;
-    name = _name;
-  }
+    public DeathPoint(float _x, float _y, string _name) {
+        x = _x;
+        y = _y;
+        name = _name;
+    }
 
-  public void print() {
-    Debug.Log(x.ToString() + " " + y.ToString() + " " + name);
-  }
+    public void print() {
+        Debug.Log(x.ToString() + " " + y.ToString() + " " + name);
+    }
 }
