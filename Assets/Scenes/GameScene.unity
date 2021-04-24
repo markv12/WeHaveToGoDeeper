@@ -103942,18 +103942,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 602236858665261738, guid: f04209fb53003104b9be9a3f9128c9d4, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 602236858665261738, guid: f04209fb53003104b9be9a3f9128c9d4, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 602236858665261738, guid: f04209fb53003104b9be9a3f9128c9d4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 602236858883990701, guid: f04209fb53003104b9be9a3f9128c9d4, type: 3}
       propertyPath: theCamera
       value: 

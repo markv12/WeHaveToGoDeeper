@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour {
     }
 
     public void SetChargeBarAmount(float amount) {
-        chargeBar.fillAmount = amount;
+        chargeBar.fillAmount = Easing.easeInSine(0, 1, amount);
     }
 
     private Coroutine healthBarRoutine = null;
