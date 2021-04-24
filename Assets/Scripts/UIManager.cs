@@ -7,7 +7,9 @@ using TMPro;
 public class UIManager : MonoBehaviour {
 
     public static UIManager instance;
-    
+    [TextArea]
+    public string testMessage;
+
     public Image chargeBar;
     public Image healthBar;
 
@@ -19,10 +21,13 @@ public class UIManager : MonoBehaviour {
     private int nextTypeSource = 0;
     private DialogueVertexAnimator utility;
 
+
     private void Awake() {
         instance = this;
         DeathPointsLoader.Instance.EnsureDeathPoints();
         utility = new DialogueVertexAnimator(dialogueText, null, PlayFromNextSource);
+
+        Type(testMessage, null);
     }
 
     public void SetChargeBarAmount(float amount) {
