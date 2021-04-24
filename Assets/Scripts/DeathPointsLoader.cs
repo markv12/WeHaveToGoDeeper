@@ -27,53 +27,53 @@ public class DeathPointsLoader : Singleton<DeathPointsLoader> {
         using UnityWebRequest webRequest = UnityWebRequest.Get(url);
         yield return webRequest.SendWebRequest();
 
-        if (webRequest.result == UnityWebRequest.Result.ConnectionError)
-            Debug.Log("Network Error: " + webRequest.error);
+        bool success = WebRequestErrorHandler(webRequest);
+        if (!success) yield break;
 
-        else if (webRequest.downloadHandler.text.Substring(0, 1) == "<")
-            Debug.Log("Network Error: 404");
+        string highScoreString = "{\"deathPoints\":" + webRequest.downloadHandler.text + "}";
+        DeathPoints dp = JsonUtility.FromJson<DeathPoints>(highScoreString);
+        deathPoints = dp.list();
 
-        else if (webRequest.downloadHandler.text == "Forbidden"
-          || webRequest.downloadHandler.text == "Internal Server Error") {
-            Debug.Log("Network Error: " + webRequest.downloadHandler.text);
-            deathPoints = new List<DeathPoint>();
-        }
-        else {
-            string highScoreString = "{\"deathPoints\":" + webRequest.downloadHandler.text + "}";
-            DeathPoints dp = JsonUtility.FromJson<DeathPoints>(highScoreString);
-            deathPoints = dp.list();
-
-            Debug.Log("Received " + deathPoints.Count + " death points");
-        }
+        Debug.Log("Received " + deathPoints.Count + " death points");
     }
 
     IEnumerator AddDeathPointToServer(float x, float y, string name) {
         //Debug.Log("Adding death point for level " + levelName);
 
         string url = "http://ld48-server.herokuapp.com/deaths/add/" + levelName + "/" + x.ToString() + "/" + y.ToString() + "/" + name;
-        Debug.Log(url);
+        //Debug.Log(url);
 
         using UnityWebRequest webRequest = UnityWebRequest.Get(url);
         yield return webRequest.SendWebRequest();
 
-        if (webRequest.result == UnityWebRequest.Result.ConnectionError)
-            Debug.Log("Network Error: " + webRequest.error);
+        bool success = WebRequestErrorHandler(webRequest);
+        if (!success) yield break;
 
-        else if (webRequest.downloadHandler.text.Substring(0, 1) == "<")
+        deathPoints.Add(new DeathPoint(x, y, name));
+
+        Debug.Log("Added new death point");
+        //deathPoints.ForEach(delegate (DeathPoint p) {
+        //  p.print();
+        //});
+    }
+
+    bool WebRequestErrorHandler(UnityWebRequest webRequest) {
+        if (webRequest.result == UnityWebRequest.Result.ConnectionError) {
+            Debug.Log("Network Error: " + webRequest.error);
+            return false;
+        }
+
+        else if (webRequest.downloadHandler.text.Substring(0, 1) == "<") {
             Debug.Log("Network Error: 404");
+            return false;
+        }
 
         else if (webRequest.downloadHandler.text == "Forbidden"
           || webRequest.downloadHandler.text == "Internal Server Error") {
             Debug.Log("Network Error: " + webRequest.downloadHandler.text);
+            return false;
         }
-        else {
-            deathPoints.Add(new DeathPoint(x, y, name));
-
-            Debug.Log("Added new death point");
-            //deathPoints.ForEach(delegate (DeathPoint p) {
-            //  p.print();
-            //});
-        }
+        return true;
     }
 }
 
