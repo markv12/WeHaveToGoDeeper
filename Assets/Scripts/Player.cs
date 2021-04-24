@@ -55,6 +55,7 @@ public class Player : MonoBehaviour {
         if (brakePressed) {
             ApplyBrake();
         }
+        UIManager.instance.ShowDepth(-mainT.position.y);
     }
 
     private void ApplyBrake() {

@@ -12,6 +12,9 @@ public class UIManager : MonoBehaviour {
 
     public Image chargeBar;
     public Image healthBar;
+    public Image depthBar;
+    public Transform goalTransform;
+    private float goalDepth;
 
     public TMP_Text dialogueText;
     public RectTransform dialogueBox;
@@ -23,6 +26,7 @@ public class UIManager : MonoBehaviour {
 
 
     private void Awake() {
+        goalDepth = -goalTransform.position.y;
         instance = this;
         DeathPointsLoader.Instance.EnsureDeathPoints();
         utility = new DialogueVertexAnimator(dialogueText, null, PlayFromNextSource);
@@ -73,5 +77,9 @@ public class UIManager : MonoBehaviour {
         nextSource.volume = typingVolume;
         nextSource.Play();
         nextTypeSource = (nextTypeSource + 1) % typingSounds.Length;
+    }
+
+    public void ShowDepth(float depth) {
+        depthBar.fillAmount = Mathf.Min(1, Mathf.Max(0, depth / goalDepth));
     }
 }
