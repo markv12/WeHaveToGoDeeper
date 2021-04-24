@@ -103894,6 +103894,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 602236858312172620, guid: f04209fb53003104b9be9a3f9128c9d4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 602236858403226558, guid: f04209fb53003104b9be9a3f9128c9d4, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -103942,10 +103946,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 602236858403226559, guid: f04209fb53003104b9be9a3f9128c9d4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 602236858665261739, guid: f04209fb53003104b9be9a3f9128c9d4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 602236858883990701, guid: f04209fb53003104b9be9a3f9128c9d4, type: 3}
       propertyPath: theCamera
       value: 
       objectReference: {fileID: 1979374951}
+    - target: {fileID: 602236858883990703, guid: f04209fb53003104b9be9a3f9128c9d4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f04209fb53003104b9be9a3f9128c9d4, type: 3}
 --- !u!1001 &978213523162466031
@@ -104060,9 +104076,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: StraightFish
       objectReference: {fileID: 0}
-    - target: {fileID: 4314740828734658053, guid: c3b8067c8eeecb44c871f7d34327a89a, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 4ff6c2662a48d2a458f278f85e7d5243, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b8067c8eeecb44c871f7d34327a89a, type: 3}
