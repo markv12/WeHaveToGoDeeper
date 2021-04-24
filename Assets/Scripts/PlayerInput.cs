@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Player))]
+[RequireComponent(typeof(OldPlayer))]
 public class PlayerInput : MonoBehaviour {
 
-	Player player;
+	OldPlayer player;
 
 	void Start() {
-		player = GetComponent<Player>();
+		player = GetComponent<OldPlayer>();
 	}
 
 	void Update() {

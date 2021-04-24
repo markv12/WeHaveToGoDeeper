@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CameraFollow : MonoBehaviour {
+public class AdvancedCameraFollow : MonoBehaviour {
 
-	public Controller2D target;
+	public Player target;
 	public CameraZoomer cameraZoomer;
 	public float verticalOffset;
 	public float lookAheadDstX;
@@ -13,42 +12,18 @@ public class CameraFollow : MonoBehaviour {
 
 	FocusArea focusArea;
 
-	float currentLookAheadX;
-	float targetLookAheadX;
-	float lookAheadDirX;
-	float smoothLookVelocityX;
 	float smoothVelocityY;
 
-	bool lookAheadStopped;
-
 	void Start() {
-		focusArea = new FocusArea (target.collider.bounds, focusAreaSize);
+		focusArea = new FocusArea (target.mainCollider.bounds, focusAreaSize);
 	}
 
 	void LateUpdate() {
-		focusArea.Update (target.collider.bounds);
+		focusArea.Update (target.mainCollider.bounds);
 
 		Vector2 focusPosition = focusArea.centre + Vector2.up * verticalOffset;
 
-		if (focusArea.velocity.x != 0) {
-			lookAheadDirX = Mathf.Sign (focusArea.velocity.x);
-			if (Mathf.Sign(target.playerInput.x) == Mathf.Sign(focusArea.velocity.x) && target.playerInput.x != 0) {
-				lookAheadStopped = false;
-				targetLookAheadX = lookAheadDirX * lookAheadDstX;
-			}
-			else {
-				if (!lookAheadStopped) {
-					lookAheadStopped = true;
-					targetLookAheadX = currentLookAheadX + (lookAheadDirX * lookAheadDstX - currentLookAheadX)/4f;
-				}
-			}
-		}
-
-
-		currentLookAheadX = Mathf.SmoothDamp (currentLookAheadX, targetLookAheadX, ref smoothLookVelocityX, lookSmoothTimeX);
-
 		focusPosition.y = Mathf.SmoothDamp (transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
-		focusPosition += Vector2.right * currentLookAheadX;
 
 		Vector3 pos = (Vector3)focusPosition + Vector3.forward * cameraZoomer.currentZoom;
 		transform.position = pos;

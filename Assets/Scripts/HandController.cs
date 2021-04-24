@@ -38,7 +38,7 @@ public class HandController : MonoBehaviour {
                 v3.z = cameraDistance;
                 aimPosition = TheCamera.ScreenToWorldPoint(v3);
             } else {
-                aimPosition = Player.mainPlayer.t.position;
+                aimPosition = OldPlayer.mainPlayer.t.position;
             }
 
             Vector3 handPos = GetHandPosition(aimPosition);
