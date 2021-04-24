@@ -64,6 +64,8 @@ public class Player : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Hurt")) {
             Health -= 25;
+        } else {
+            Health -= 5;
         }
     }
 
