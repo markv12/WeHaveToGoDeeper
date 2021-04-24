@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour {
 
     private void Awake() {
         instance = this;
+        DeathPointsLoader.Instance.GetDeathPoints();
     }
 
     public void SetChargeBarAmount(float amount) {

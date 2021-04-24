@@ -8,7 +8,7 @@ public class DeathPointsLoader : Singleton<DeathPointsLoader>
   public static DeathPoint[] deathPoints;
   string levelName = "test";
 
-  void GetDeathPoints () {
+  public void GetDeathPoints () {
     StartCoroutine(LoadDeathPointsFromServer());
   }
 
