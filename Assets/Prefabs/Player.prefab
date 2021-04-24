@@ -147,7 +147,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.3
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -300,5 +300,5 @@ MonoBehaviour:
   thrusterT: {fileID: 602236858883990702}
   ownerT: {fileID: 602236858403226558}
   theCamera: {fileID: 0}
-  maxThrust: 1000
+  maxThrust: 2000
   cameraDistance: 0
