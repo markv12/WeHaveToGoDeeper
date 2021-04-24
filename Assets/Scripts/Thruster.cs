@@ -57,9 +57,9 @@ public class Thruster : MonoBehaviour {
     }
 
     public void ChargeUp(float chargeAmount) {
-        if(ThrustAmount == 0) {
-            ThrustAmount = 0.05f;
-        }
+        //if(ThrustAmount == 0) {
+        //    ThrustAmount = 0.05f;
+        //}
         ThrustAmount = Mathf.Min(1f, ThrustAmount + chargeAmount);
     }
 
