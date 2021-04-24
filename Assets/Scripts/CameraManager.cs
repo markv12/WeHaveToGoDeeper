@@ -10,7 +10,7 @@ public class CameraManager : MonoBehaviour {
         cameraZ = mainT.position.z;
     }
 
-    private const float FOLLOW_SPEED = 10f;
+    private const float FOLLOW_SPEED = 7.5f;
     private void FixedUpdate() {
         mainT.position = Vector3.Lerp(mainT.position, target.rgd.position, FOLLOW_SPEED * Time.fixedDeltaTime).SetZ(cameraZ);
     }

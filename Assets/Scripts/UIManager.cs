@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 
@@ -19,7 +18,12 @@ public class UIManager : MonoBehaviour {
         chargeBar.fillAmount = amount;
     }
 
+    private Coroutine healthBarRoutine = null;
     public void ShowHealthAmount(float amount) {
-        healthBar.fillAmount = amount;
+        this.EnsureCoroutineStopped(ref healthBarRoutine);
+        float startAmount = healthBar.fillAmount;
+        this.CreateAnimationRoutine(0.3f, delegate (float progress) {
+            healthBar.fillAmount = Easing.easeInOutSine(startAmount, amount, progress);
+        });
     }
 }

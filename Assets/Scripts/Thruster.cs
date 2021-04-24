@@ -17,8 +17,8 @@ public class Thruster : MonoBehaviour {
             UIManager.instance.SetChargeBarAmount(thrustAmount);
         }
     }
-    public const float MAX_THRUST = 4000;
-    public const float THRUST_PER_SECOND = 0.75f;
+    public const float MAX_THRUST = 1000;
+    public const float THRUST_PER_SECOND = 1f;
 
     public float cameraDistance;
     private void Awake() {
@@ -55,7 +55,6 @@ public class Thruster : MonoBehaviour {
             return -thrusterT.right;
         }
     }
-
 
     public void ChargeUp(float chargeAmount) {
         if(ThrustAmount == 0) {
