@@ -52,6 +52,8 @@ public class UIManager : MonoBehaviour {
     private Coroutine showLineRoutine = null;
     private Coroutine showLineRoutineInner = null;
     public void ShowMessage(string message) {
+        if (IsDialoguePlaying) return;
+
         dialogueText.text = "";
         dialogueGroup.alpha = 0;
         dialogueBox.gameObject.SetActive(true);

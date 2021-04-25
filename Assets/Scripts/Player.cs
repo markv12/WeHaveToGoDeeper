@@ -28,11 +28,19 @@ public class Player : MonoBehaviour {
         }
     }
     private bool isFlying = false;
+    private int fishLayer;
 
     void Start() {
+        if (SessionData.playerName == null) SessionData.playerName = "Assistant";
+        fishLayer = LayerMask.NameToLayer("Fish");
         Health = MAX_HEALTH;
         mainPlayer = this;
         SessionData.InitGame();
+        UIManager.instance.ShowMessage(@"professor: Come, " + SessionData.playerName +  @"! We must journey <anim:shake>into the depths!!</anim>
+player: Why are we even doing this?
+professor: Copernicus! Magellan! Soon <b><anim:shake>I</anim></b> will join their ranks!! The bottom of the sea awaits!
+player: ...This is stupid.
+professor: Silence, my lowly assistant! <p:normal>We must go <anim:wave><cspace=5>Deeper!!!</cspace></anim>");
     }
 
     public const float SEA_LEVEL_Y = 10f;
@@ -74,6 +82,12 @@ public class Player : MonoBehaviour {
         if (!isFlying && mainT.position.y > SEA_LEVEL_Y) {
             isFlying = true;
             AudioManager.Instance.PlayExitWaterSound(rgd.velocity.magnitude / 1000);
+            UIManager.instance.ShowMessage(@"professor: No, no no! <p:normal>We have to go <u><b>deeper</b></u>, not higher!!
+player: Is it too late to go back???
+professor: <size=30>...Why are kids these days so shallow?</size>");
+        }
+        else if (isFlying && mainT.position.y > SEA_LEVEL_Y + 100.0f) {
+            UIManager.instance.ShowMessage(@"professor: Wait, where are you going!?! How are you doing that?");
         }
         else if (isFlying && mainT.position.y <= SEA_LEVEL_Y) {
             isFlying = false;
@@ -99,6 +113,36 @@ public class Player : MonoBehaviour {
         CameraShaker.instance.HitCameraShake(magnitude);
         Health -= damage;
         AudioManager.Instance.PlayHitSound(damage);
+        if (Random.value > 0.5f) {
+            if (collision.gameObject.layer == fishLayer) {
+                string[] options = {@"professor: Did you see the <anim:shake>size</anim> of that beast?? <b><i>Terrifying!</i></b>",
+@"professor: <b><anim:shake><size=50>Gracious!</size></anim></b> What a brute!
+player: You just spit on me.",
+@"professor: I could have dodged that with my eyes closed!
+player: <size=30>You're legally blind...</size>",
+@"professor: Oof!",
+@"professor: Ouch!",
+@"professor: Yowch!",
+            };
+                string choice = options[Random.Range(0, options.Length)];
+                UIManager.instance.ShowMessage(choice);
+            }
+            else {
+                string[] options = {@"professor: Oof! Careful, fool!
+player: Takes one to know one...",
+@"professor: Watch the stern! <p:normal>The <anim:shake>STERN!!</anim>",
+@"professor: That's a <b>wall!</b> Have you ever even driven this submarine before?
+player: <size=30>Maybe if you stopped talking over my shoulder...</size>",
+@"professor: Just because I said I want to go <b><anim:wave>deeper</anim></b>, I don't mean that I want us to sink!!
+player: <size=30>You're welcome to take over anytime now...</size>",
+@"professor: Pay more attention!",
+@"professor: Oof!",
+@"professor: Ouch!",
+@"professor: You oaf!"};
+                string choice = options[Random.Range(0, options.Length)];
+                UIManager.instance.ShowMessage(choice);
+            }
+        }
     }
 
     private void Die() {
@@ -113,6 +157,7 @@ public class Player : MonoBehaviour {
     public void Respawn() {
         Health = MAX_HEALTH;
         mainT.position = SessionData.lastCheckpoint;
+        rgd.velocity = new Vector2(0.0f, 0.0f);
 
         CameraShaker.instance.ResetShake();
         // todo flash alpha as in "i-frames"
