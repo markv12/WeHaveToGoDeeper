@@ -100,9 +100,10 @@ public class UIManager : MonoBehaviour {
                 while (!lineComplete) {
                     yield return null;
                 }
-                yield return typeWait;
+                yield return new WaitForSeconds(GetWaitTimeForText(theText));
             }
             mainPortrait.sprite = defaultPortrait;
+            nameBox.SetActive(false);
 
             showLineRoutineInner = this.CreateAnimationRoutine(0.3f, delegate (float progress) {
                 dialogueGroup.alpha = 1-progress;
@@ -112,6 +113,12 @@ public class UIManager : MonoBehaviour {
             showLineRoutine = null;
             showLineRoutineInner = null;
         }
+    }
+
+    private float GetWaitTimeForText(string theText) {
+        int charCount = theText.Length;
+        float amount = Mathf.InverseLerp(0f, 80f, charCount);
+        return 1.2f + Mathf.Lerp(0f, 3f, amount);
     }
 
     public bool IsDialoguePlaying {
