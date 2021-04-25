@@ -11,6 +11,7 @@ public class DialogueTrigger : MonoBehaviour {
                 int index = Random.Range(0, dialogueText.Length);
                 UIManager.instance.ShowMessage(dialogueText[index]);
             }
+            Destroy(gameObject);
         }
     }
 }
