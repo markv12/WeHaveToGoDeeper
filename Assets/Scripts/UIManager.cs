@@ -67,7 +67,6 @@ public class UIManager : MonoBehaviour {
                 string line = lines[i];
 
                 string[] lineParts = line.Split(nameSeparator, StringSplitOptions.RemoveEmptyEntries);
-                Debug.Log(lineParts.Length);
                 string theName = lineParts.Length >= 2 ? lineParts[0] : "";
                 if(theName.ToLower() == "player") {
                     theName = SessionData.playerName;

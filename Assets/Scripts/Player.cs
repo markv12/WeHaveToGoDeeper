@@ -32,10 +32,10 @@ public class Player : MonoBehaviour {
     void Start() {
         Health = MAX_HEALTH;
         mainPlayer = this;
-        SessionData.startTime = Time.time;
+        SessionData.InitGame();
     }
 
-    private const float SEA_LEVEL_Y = 10f;
+    public const float SEA_LEVEL_Y = 10f;
     void Update() {
         if (DeathUIManager.instance.shown) return;
 
@@ -112,7 +112,7 @@ public class Player : MonoBehaviour {
 
     public void Respawn() {
         Health = MAX_HEALTH;
-        mainT.position = new Vector2(0.0f, 0.0f);
+        mainT.position = SessionData.lastCheckpoint;
 
         // todo flash alpha as in "i-frames"
         //CanvasGroup cg = mainPlayer.GetComponent<CanvasGroup>();
