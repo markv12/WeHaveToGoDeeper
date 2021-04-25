@@ -17,7 +17,6 @@ public class Thruster : MonoBehaviour {
         }
         set {
             thrustAmount = value;
-            UIManager.instance.SetChargeBarAmount(thrustAmount);
             thrustFillIndicator.localPosition = Vector3.Lerp(fillEmptyPos, fillFullPos, Easing.easeInSine(0, 1, thrustAmount));
         }
     }
@@ -30,6 +29,7 @@ public class Thruster : MonoBehaviour {
     }
 
     void Update() {
+        if (DeathUIManager.instance.shown) return;
         Vector3 v3 = Input.mousePosition;
         v3.z = cameraDistance;
         Vector3 aimPosition = theCamera.ScreenToWorldPoint(v3);

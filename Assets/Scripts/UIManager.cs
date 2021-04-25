@@ -8,10 +8,7 @@ using System.Collections;
 public class UIManager : MonoBehaviour {
 
     public static UIManager instance;
-    [TextArea]
-    public string testMessage;
 
-    public Image chargeBar;
     public Image healthBar;
     public Image depthBar;
     public CanvasGroup canvasGroup;
@@ -20,6 +17,7 @@ public class UIManager : MonoBehaviour {
 
     public TMP_Text dialogueText;
     public RectTransform dialogueBox;
+    public CanvasGroup dialogueGroup;
     public AudioClip typingClip;
     public AudioSource[] typingSounds;
     public float typingVolume = 1;
@@ -33,10 +31,6 @@ public class UIManager : MonoBehaviour {
         utility = new DialogueVertexAnimator(dialogueText, null, PlayFromNextSource);
     }
 
-    public void SetChargeBarAmount(float amount) {
-        chargeBar.fillAmount = Easing.easeInSine(0, 1, amount);
-    }
-
     private Coroutine healthBarRoutine = null;
     public void ShowHealthAmount(float amount) {
         this.EnsureCoroutineStopped(ref healthBarRoutine);
@@ -46,17 +40,49 @@ public class UIManager : MonoBehaviour {
         });
     }
 
-    private Coroutine closeRoutine = null;
+    private static readonly WaitForSeconds typeWait = new WaitForSeconds(3f);
+    private static readonly string[] separators = new string[] { Environment.NewLine, "\r\n", "\r", "\n" };
+    private Coroutine showLineRoutine = null;
+    private Coroutine showLineRoutineInner = null;
     public void ShowMessage(string message) {
+        dialogueText.text = "";
+        dialogueGroup.alpha = 0;
         dialogueBox.gameObject.SetActive(true);
-        Type(message, delegate {
-            this.EnsureCoroutineStopped(ref closeRoutine);
-            closeRoutine = StartCoroutine(WaitAndCloseBox());
-        });
+        this.EnsureCoroutineStopped(ref showLineRoutine);
+        this.EnsureCoroutineStopped(ref showLineRoutineInner);
+        showLineRoutine = StartCoroutine(ShowLineRoutine(message));
 
-        IEnumerator WaitAndCloseBox() {
-            yield return new WaitForSeconds(5f);
-            dialogueBox.gameObject.SetActive(false);
+        IEnumerator ShowLineRoutine(string message) {
+            showLineRoutineInner = this.CreateAnimationRoutine(0.3f, delegate (float progress) {
+                dialogueGroup.alpha = progress;
+            });
+            yield return showLineRoutineInner;
+
+            string[] lines = message.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < lines.Length; i++) {
+                string line = lines[i];
+                bool lineComplete = false;
+                Type(line, delegate {
+                    lineComplete = true;
+                });
+                while (!lineComplete) {
+                    yield return null;
+                }
+                yield return typeWait;
+            }
+
+            showLineRoutineInner = this.CreateAnimationRoutine(0.3f, delegate (float progress) {
+                dialogueGroup.alpha = 1-progress;
+            });
+            yield return showLineRoutineInner;
+            showLineRoutine = null;
+            showLineRoutineInner = null;
+        }
+    }
+
+    public bool IsDialoguePlaying {
+        get {
+            return showLineRoutine != null;
         }
     }
 
