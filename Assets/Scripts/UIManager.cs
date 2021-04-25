@@ -77,11 +77,16 @@ public class UIManager : MonoBehaviour {
                     theName = lineParts[0];
                     theText = lineParts[1];
                 }
-                Sprite charPortrait = professorPortrait;
+      
+                Sprite charPortrait;
                 if(theName.ToLower() == "player") {
                     theName = SessionData.playerName;
                     charPortrait = playerPortrait;
+                } else {
+                    theName = theName.Capitalized();
+                    charPortrait = professorPortrait;
                 }
+                theText = theText.Trim();
                 nameBox.SetActive(!string.IsNullOrWhiteSpace(theName));
                 nameText.text = theName;
                 mainPortrait.sprite = charPortrait;
