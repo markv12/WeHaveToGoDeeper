@@ -11,6 +11,8 @@ public class CameraShaker : MonoBehaviour {
 
 	public float maxOffset;
 	public float shakeSpeed;
+	[Range(0.01f, 5f)]
+	public float shakeLength = 0.3f;
 	private float shakeAmount;
 	private float time = 0;
 
@@ -30,7 +32,7 @@ public class CameraShaker : MonoBehaviour {
 	public void HitCameraShake() {
 		this.EnsureCoroutineStopped(ref shakeRoutine);
 		this.CreateAnimationRoutine(
-			0.3f,
+			shakeLength,
 			delegate (float progress) {
 				shakeAmount = Mathf.Lerp(1, 0, progress);
 			}

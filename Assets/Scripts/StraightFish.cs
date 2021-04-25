@@ -78,6 +78,13 @@ public class StraightFishEditor : Editor {
             EditorUtility.SetDirty(target);
         }
     }
+
+    public override void OnInspectorGUI() {
+        StraightFish myTarget = (StraightFish)target;
+        base.OnInspectorGUI();
+        serializedObject.Update();
+        EditorGUILayout.LabelField("Length: " + Vector2.Distance(myTarget.fishT.localPosition, myTarget.endPosition));
+    }
 }
 #endif
 
