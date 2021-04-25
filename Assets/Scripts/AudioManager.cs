@@ -20,13 +20,27 @@ public class AudioManager : MonoBehaviour
 
 	[Header("Sound Effects")]
 	public AudioSource[] audioSources;
-	public AudioClip jumpSound;
 
 	private int audioSourceIndex = 0;
 
-	public void PlayJumpSound()
-	{
-		PlaySFX(jumpSound, 0.75f);
+	public AudioClip exitWater;
+	public void PlayExitWaterSound() {
+		PlaySFX(exitWater, 0.75f);
+	}
+
+	public AudioClip enterWater;
+	public void PlayEnterWaterSound() {
+		PlaySFX(enterWater, 0.75f);
+	}
+
+	public AudioClip hit;
+	public void PlayHitSound(float intensity) {
+		PlaySFX(hit, 0.75f * intensity);
+	}
+
+	public AudioClip boost;
+	public void PlayBoostSound(float intensity) {
+		PlaySFX(boost, 0.75f * intensity);
 	}
 
 	public void PlaySFX(AudioClip clip, float volume)
