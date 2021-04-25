@@ -18,6 +18,10 @@ public class UIManager : MonoBehaviour {
     public TMP_Text dialogueText;
     public TMP_Text nameText;
     public GameObject nameBox;
+    public Image mainPortrait;
+    public Sprite defaultPortrait;
+    public Sprite professorPortrait;
+    public Sprite playerPortrait;
     public RectTransform dialogueBox;
     public CanvasGroup dialogueGroup;
     public AudioClip typingClip;
@@ -44,7 +48,7 @@ public class UIManager : MonoBehaviour {
 
     private static readonly WaitForSeconds typeWait = new WaitForSeconds(3f);
     private static readonly string[] separators = new string[] { Environment.NewLine, "\r\n", "\r", "\n" };
-    private static readonly string[] nameSeparator = new string[] { ":" };
+    private static readonly char[] nameSeparator = new char[] { ':' };
     private Coroutine showLineRoutine = null;
     private Coroutine showLineRoutineInner = null;
     public void ShowMessage(string message) {
@@ -66,14 +70,21 @@ public class UIManager : MonoBehaviour {
             for (int i = 0; i < lines.Length; i++) {
                 string line = lines[i];
 
-                string[] lineParts = line.Split(nameSeparator, StringSplitOptions.RemoveEmptyEntries);
-                string theName = lineParts.Length >= 2 ? lineParts[0] : "";
+                string[] lineParts = line.Split(nameSeparator, 2, StringSplitOptions.RemoveEmptyEntries);
+                string theName = "";
+                string theText = lineParts[0];
+                if (lineParts.Length >= 2) {
+                    theName = lineParts[0];
+                    theText = lineParts[1];
+                }
+                Sprite charPortrait = professorPortrait;
                 if(theName.ToLower() == "player") {
                     theName = SessionData.playerName;
+                    charPortrait = playerPortrait;
                 }
                 nameBox.SetActive(!string.IsNullOrWhiteSpace(theName));
                 nameText.text = theName;
-                string theText = lineParts.Length >= 2 ? lineParts[1] : lineParts[0];
+                mainPortrait.sprite = charPortrait;
                 bool lineComplete = false;
                 Type(theText, delegate {
                     lineComplete = true;
@@ -83,6 +94,7 @@ public class UIManager : MonoBehaviour {
                 }
                 yield return typeWait;
             }
+            mainPortrait.sprite = defaultPortrait;
 
             showLineRoutineInner = this.CreateAnimationRoutine(0.3f, delegate (float progress) {
                 dialogueGroup.alpha = 1-progress;
