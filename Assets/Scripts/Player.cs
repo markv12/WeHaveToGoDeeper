@@ -42,7 +42,7 @@ public class Player : MonoBehaviour {
         engineSound.pitch = Mathf.Lerp(engineSound.pitch,
             Mathf.Max(
                 0.0f + thruster.ThrustAmount * 2.0f,
-                0.0f + rgd.velocity.magnitude / 500
+                0.2f + rgd.velocity.magnitude / 500
             ),
             thruster.ThrustAmount * 2.0f >
             rgd.velocity.magnitude / 500 ?
@@ -51,9 +51,9 @@ public class Player : MonoBehaviour {
         engineSound.volume = Mathf.Lerp(engineSound.volume,
             Mathf.Max(
                 0.0f + thruster.ThrustAmount * 0.05f,
-                0.002f + rgd.velocity.magnitude / 1000
+                0.009f + rgd.velocity.magnitude / 500
                 ), Time.deltaTime * 2.0f
-          ); ;
+          );
 
         if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) {
             thruster.ChargeUp(Time.deltaTime * Thruster.THRUST_PER_SECOND);

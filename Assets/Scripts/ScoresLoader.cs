@@ -42,7 +42,6 @@ public class ScoresLoader : Singleton<ScoresLoader> {
     }
 
     public IEnumerator AddHighScoreToServer(float score, string name, Action callback) {
-        Debug.Log("Adding score for user " + name);
 
         string url = "https://ld48-server.herokuapp.com/score/add/" + levelName + "/" + name + "/" + score.ToString();
 

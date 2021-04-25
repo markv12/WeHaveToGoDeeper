@@ -19,6 +19,7 @@ public class FinishManager : MonoBehaviour {
         StartCoroutine(
             ScoresLoader.Instance.AddHighScoreToServer(
                 time, SessionData.playerName, delegate {
+                    highScoreList.LoadBestScores();
                     highScoreList.LoadScoresAround(SessionData.playerName);
                 }
             )

@@ -6,11 +6,13 @@ public class MainMenuUI : MonoBehaviour {
     public Button startButton;
     public CanvasGroup startButtonCG;
     public TMPro.TMP_InputField nameInput;
+    public HighScoreList hsl;
     bool canStart = false;
 
     private void Awake() {
         startButton.onClick.AddListener(StartGame);
         DeathPointsLoader.Instance.EnsureDeathPoints();
+        hsl.LoadBestScores();
 
         nameInput.Select();
         nameInput.onValueChanged.AddListener(delegate {
@@ -34,7 +36,7 @@ public class MainMenuUI : MonoBehaviour {
     void StartGame() {
         if (!canStart) return;
 
-        SessionData.playerName = nameInput.text;
+        SessionData.playerName = nameInput.text.Replace('?', '¿').Replace('/', '-').Replace('&', '+');
         SceneLoader.Instance.LoadScene("GameScene");
     }
 }
