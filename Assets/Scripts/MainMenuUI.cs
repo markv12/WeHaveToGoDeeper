@@ -23,12 +23,18 @@ public class MainMenuUI : MonoBehaviour {
                 startButtonCG.alpha = 0.3f;
             }
         });
+    }
 
-        void StartGame() {
-            if (!canStart) return;
-
-            SessionData.playerName = nameInput.text;
-            SceneLoader.Instance.LoadScene("GameScene");
+    void Update() {
+        if (Input.GetKey(KeyCode.Return)) {
+            StartGame();
         }
+    }
+
+    void StartGame() {
+        if (!canStart) return;
+
+        SessionData.playerName = nameInput.text;
+        SceneLoader.Instance.LoadScene("GameScene");
     }
 }
