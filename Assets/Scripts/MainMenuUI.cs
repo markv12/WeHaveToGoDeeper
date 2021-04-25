@@ -11,7 +11,6 @@ public class MainMenuUI : MonoBehaviour {
     private void Awake() {
         startButton.onClick.AddListener(StartGame);
         DeathPointsLoader.Instance.EnsureDeathPoints();
-        SessionData.playerName = "Some Poor Soul";
 
         nameInput.Select();
         nameInput.onValueChanged.AddListener(delegate {
@@ -20,6 +19,7 @@ public class MainMenuUI : MonoBehaviour {
                 startButtonCG.alpha = 1.0f;
             }
             else {
+                canStart = false;
                 startButtonCG.alpha = 0.3f;
             }
         });
