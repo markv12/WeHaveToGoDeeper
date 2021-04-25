@@ -12,6 +12,8 @@ public class Player : MonoBehaviour {
     public Thruster thruster;
     public Collider2D mainCollider;
 
+    public ParticleSystem thrustParticles;
+
     public float brakeStrength = 3;
     private const int MAX_HEALTH = 100;
     private int health = MAX_HEALTH;
@@ -46,9 +48,7 @@ public class Player : MonoBehaviour {
             ApplyBrake();
         }
         if (Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.Space)) {
-            float thrustAmount = thruster.Release();
-            //Debug.Log(thrustAmount);
-            rgd.AddForce(thruster.ThrustDirection * thrustAmount);
+            Thrust();
         }
         if (Input.GetKeyUp(KeyCode.Backspace)) {
             Die();
@@ -59,6 +59,13 @@ public class Player : MonoBehaviour {
         }
         UIManager.instance.ShowDepth(-mainT.position.y);
         rgd.gravityScale = (mainT.position.y > SEA_LEVEL_Y) ? 3.333f : 0;
+    }
+
+    private void Thrust() {
+        thrustParticles.Play();
+        float thrustAmount = thruster.Release();
+        //Debug.Log(thrustAmount);
+        rgd.AddForce(thruster.ThrustDirection * thrustAmount);
     }
 
     private void ApplyBrake() {
