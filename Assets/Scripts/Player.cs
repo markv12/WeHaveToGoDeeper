@@ -114,6 +114,7 @@ public class Player : MonoBehaviour {
         Health = MAX_HEALTH;
         mainT.position = SessionData.lastCheckpoint;
 
+        CameraShaker.instance.ResetShake();
         // todo flash alpha as in "i-frames"
         //CanvasGroup cg = mainPlayer.GetComponent<CanvasGroup>();
 

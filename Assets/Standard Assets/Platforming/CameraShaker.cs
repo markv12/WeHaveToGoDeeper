@@ -47,4 +47,9 @@ public class CameraShaker : MonoBehaviour {
 			}
 		);
 	}
+
+    public void ResetShake() {
+		shakeAmount = 0;
+	}
+
 }
