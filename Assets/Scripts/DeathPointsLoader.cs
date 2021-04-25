@@ -11,7 +11,6 @@ public class DeathPointsLoader : Singleton<DeathPointsLoader> {
     bool hasLoaded = false;
 
     public void AddDeathPoint(float x, float y, string name) {
-        deathPoints.Add(new DeathPoint(x, y, name));
         StartCoroutine(AddDeathPointToServer(x, y, name));
     }
 
@@ -47,6 +46,9 @@ public class DeathPointsLoader : Singleton<DeathPointsLoader> {
 
         using UnityWebRequest webRequest = UnityWebRequest.Get(url);
         yield return webRequest.SendWebRequest();
+
+        // we want this to be a little slow anyway so it doesn't display the first time
+        deathPoints.Add(new DeathPoint(x, y, name));
 
         bool success = WebRequestErrorHandler(webRequest);
         if (!success) yield break;

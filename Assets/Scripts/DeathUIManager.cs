@@ -13,11 +13,13 @@ public class DeathUIManager : MonoBehaviour {
 
     void Awake() {
         instance = this;
+        canvas.enabled = false;
     }
 
     void Update() {
         if (Input.GetKey(KeyCode.Space)) {
             Hide();
+            Player.mainPlayer.Respawn();
         }
     }
 
@@ -32,6 +34,7 @@ public class DeathUIManager : MonoBehaviour {
         this.EnsureCoroutineStopped(ref fadeRoutine);
         fadeRoutine = this.CreateAnimationRoutine(0.3f, delegate (float progress) {
             cg.alpha = progress;
+            UIManager.instance.canvasGroup.alpha = 1 - progress;
         }, delegate {});
     }
 
@@ -39,6 +42,7 @@ public class DeathUIManager : MonoBehaviour {
         this.EnsureCoroutineStopped(ref fadeRoutine);
         Time.timeScale = 1.0f;
         canvas.enabled = false;
+        UIManager.instance.canvasGroup.alpha = 1;
         shown = false;
         pointsSpawner.ClearDeathPoints();
     }

@@ -72,9 +72,22 @@ public class Player : MonoBehaviour {
 
     private void Die() {
         string nameToUse = string.IsNullOrWhiteSpace(SessionData.playerName) ? "Some Poor Soul" : SessionData.playerName;
-        DeathPointsLoader.Instance.AddDeathPoint(transform.position.x, transform.position.y, nameToUse);
         DeathUIManager.instance.Show();
+        DeathPointsLoader.Instance.AddDeathPoint(transform.position.x, transform.position.y, nameToUse);
+        // todo play death animation
+    }
 
-        Health = MAX_HEALTH; // for now
+    public void Respawn() {
+        Health = MAX_HEALTH;
+        mainT.position = new Vector2(0.0f, 0.0f);
+
+        // todo flash alpha as in "i-frames"
+        //CanvasGroup cg = mainPlayer.GetComponent<CanvasGroup>();
+
+        //this.CreateAnimationRoutine(1.5f, delegate (float progress) {
+        //    cg.alpha = progress * 5.0f % 1.0f > 0.5f ? 0 : 1;
+        //}, delegate {
+        //    cg.alpha = 1;
+        //});
     }
 }

@@ -11,7 +11,6 @@ public class DeathPointUIElement : MonoBehaviour {
             float easedProgress = Easing.easeOutSine(0.0f, 1.0f, progress);
             cg.alpha = progress * 1.0f;
             rt.anchoredPosition = rt.anchoredPosition.SetY(easedProgress * -30.0f);
-            Debug.Log(rt.anchoredPosition.y);
         }, delegate { });
     }
 

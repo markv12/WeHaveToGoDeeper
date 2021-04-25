@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour {
     public Image chargeBar;
     public Image healthBar;
     public Image depthBar;
+    public CanvasGroup canvasGroup;
     public Transform goalTransform;
     private float goalDepth;
 

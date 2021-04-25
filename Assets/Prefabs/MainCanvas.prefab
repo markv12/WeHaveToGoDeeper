@@ -601,6 +601,7 @@ GameObject:
   - component: {fileID: 3821557842062043459}
   - component: {fileID: 3821557842062043458}
   - component: {fileID: 3821557842062043462}
+  - component: {fileID: 4867423427646071966}
   m_Layer: 5
   m_Name: MainCanvas
   m_TagString: Untagged
@@ -710,6 +711,7 @@ MonoBehaviour:
   chargeBar: {fileID: 3821557843034355691}
   healthBar: {fileID: 3821557842973864576}
   depthBar: {fileID: 3186754267245692402}
+  canvasGroup: {fileID: 4867423427646071966}
   goalTransform: {fileID: 0}
   dialogueText: {fileID: 8817119058629380343}
   dialogueBox: {fileID: 5265384886957767855}
@@ -721,6 +723,18 @@ MonoBehaviour:
   - {fileID: 5621832596836601583}
   - {fileID: 3605380013121393201}
   typingVolume: 1
+--- !u!225 &4867423427646071966
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3821557842062043457}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3821557842973864606
 GameObject:
   m_ObjectHideFlags: 0
