@@ -23,7 +23,7 @@ public class DialogueVertexAnimator {
     private static readonly Vector3 vecZero = Vector3.zero;
     public IEnumerator AnimateTextIn(List<DialogueCommand> commands, string processedMessage, AudioClip voice_sound, Action onFinish) {
         textAnimating = true;
-        float secondsPerCharacter = 1f / 150f;
+        float secondsPerCharacter = 1f / 60f;
         float timeOfLastCharacter = 0;
 
         TextAnimInfo[] textAnimInfo = SeparateOutTextAnimInfo(commands);
