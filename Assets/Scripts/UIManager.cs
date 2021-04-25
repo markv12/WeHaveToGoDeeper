@@ -31,8 +31,6 @@ public class UIManager : MonoBehaviour {
         instance = this;
         DeathPointsLoader.Instance.EnsureDeathPoints();
         utility = new DialogueVertexAnimator(dialogueText, null, PlayFromNextSource);
-
-        Type(testMessage, null);
     }
 
     public void SetChargeBarAmount(float amount) {
@@ -48,6 +46,9 @@ public class UIManager : MonoBehaviour {
         });
     }
 
+    public void ShowMessage(string message) {
+        Type(message, null);
+    }
 
     private Coroutine typeRoutine = null;
     private const float MIN_HEIGHT = 225;
