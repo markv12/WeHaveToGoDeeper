@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class UIManager : MonoBehaviour {
 
@@ -25,7 +26,6 @@ public class UIManager : MonoBehaviour {
     private int nextTypeSource = 0;
     private DialogueVertexAnimator utility;
 
-
     private void Awake() {
         goalDepth = -goalTransform.position.y;
         instance = this;
@@ -46,12 +46,22 @@ public class UIManager : MonoBehaviour {
         });
     }
 
+    private Coroutine closeRoutine = null;
     public void ShowMessage(string message) {
-        Type(message, null);
+        dialogueBox.gameObject.SetActive(true);
+        Type(message, delegate {
+            this.EnsureCoroutineStopped(ref closeRoutine);
+            closeRoutine = StartCoroutine(WaitAndCloseBox());
+        });
+
+        IEnumerator WaitAndCloseBox() {
+            yield return new WaitForSeconds(5f);
+            dialogueBox.gameObject.SetActive(false);
+        }
     }
 
     private Coroutine typeRoutine = null;
-    private const float MIN_HEIGHT = 225;
+    private const float MIN_HEIGHT = 80;
     private bool Type(string message, Action onFinish) {
         this.EnsureCoroutineStopped(ref typeRoutine);
         utility.textAnimating = false;

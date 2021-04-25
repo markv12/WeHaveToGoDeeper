@@ -38,7 +38,8 @@ public class Player : MonoBehaviour {
     void Update() {
         if (DeathUIManager.instance.shown) return;
 
-        engineSound.pitch = rgd.velocity.magnitude;
+        engineSound.pitch = 1.0f + rgd.velocity.magnitude / 300;
+        engineSound.volume = 0.009f + rgd.velocity.magnitude / 1000;
 
         if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) {
             thruster.ChargeUp(Time.deltaTime * Thruster.THRUST_PER_SECOND);
@@ -63,6 +64,7 @@ public class Player : MonoBehaviour {
         float thrustAmount = thruster.Release();
         //Debug.Log(thrustAmount);
         rgd.AddForce(thruster.ThrustDirection * thrustAmount);
+        AudioManager.Instance.PlayBoostSound(thrustAmount);
     }
 
     private void ApplyBrake() {
@@ -74,7 +76,7 @@ public class Player : MonoBehaviour {
         int damage = (int)Mathf.Lerp(4.2f, 10.1f, magnitude);
         CameraShaker.instance.HitCameraShake(magnitude);
         Health -= damage;
-        AudioManager.Instance.PlayHitSound(damage / 5.0f);
+        AudioManager.Instance.PlayHitSound(damage);
     }
 
     private void Die() {
