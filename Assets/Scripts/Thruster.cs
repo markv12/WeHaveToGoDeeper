@@ -6,6 +6,9 @@ public class Thruster : MonoBehaviour {
     public Transform ownerT;
     public Camera theCamera;
 
+    public Transform thrustFillIndicator;
+    private static readonly Vector3 fillEmptyPos = new Vector3(-0.6f, 0, 0);
+    private static readonly Vector3 fillFullPos = new Vector3(0.3f, 0, 0);
 
     private float thrustAmount = 0;
     private float ThrustAmount {
@@ -15,6 +18,7 @@ public class Thruster : MonoBehaviour {
         set {
             thrustAmount = value;
             UIManager.instance.SetChargeBarAmount(thrustAmount);
+            thrustFillIndicator.localPosition = Vector3.Lerp(fillEmptyPos, fillFullPos, Easing.easeInSine(0, 1, thrustAmount));
         }
     }
     public float maxThrust = 1000;
