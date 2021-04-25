@@ -40,7 +40,7 @@ public class Player : MonoBehaviour {
 player: Why are we even doing this?
 professor: Copernicus! Magellan! Soon <b><anim:shake>I</anim></b> will join their ranks!! The bottom of the sea awaits!
 player: ...This is stupid.
-professor: Silence, my lowly assistant! <p:normal>We must go <anim:wave><cspace=5>Deeper!!!</cspace></anim>");
+professor: Silence, my lowly assistant! <p:normal>We must go <anim:wave><b><cspace=5>Deeper!!!</cspace></b></anim>");
     }
 
     public const float SEA_LEVEL_Y = 10f;
@@ -87,7 +87,8 @@ player: Is it too late to go back???
 professor: <size=30>...Why are kids these days so shallow?</size>");
         }
         else if (isFlying && mainT.position.y > SEA_LEVEL_Y + 100.0f) {
-            UIManager.instance.ShowMessage(@"professor: Wait, where are you going!?! How are you doing that?");
+            UIManager.instance.ShowMessage(@"professor: Wait, where are you going!?! How are you doing that?
+player: ""<i>Flyyy~ me to the <anim:wave>mooooon</anim>, <p:normal>let me <anim:wave>plaaaaaay</anim> among the stars...</i>""");
         }
         else if (isFlying && mainT.position.y <= SEA_LEVEL_Y) {
             isFlying = false;
@@ -119,7 +120,7 @@ professor: <size=30>...Why are kids these days so shallow?</size>");
 @"professor: <b><anim:shake><size=50>Gracious!</size></anim></b> What a brute!
 player: You just spit on me.",
 @"professor: I could have dodged that with my eyes closed!
-player: <size=30>You're legally blind...</size>",
+player: <size=30>But you're legally blind...</size>",
 @"professor: Oof!",
 @"professor: Ouch!",
 @"professor: Yowch!",
@@ -129,7 +130,7 @@ player: <size=30>You're legally blind...</size>",
             }
             else {
                 string[] options = {@"professor: Oof! Careful, fool!
-player: Takes one to know one...",
+player: <size=30>Takes one to know one...</size>",
 @"professor: Watch the stern! <p:normal>The <anim:shake>STERN!!</anim>",
 @"professor: That's a <b>wall!</b> Have you ever even driven this submarine before?
 player: <size=30>Maybe if you stopped talking over my shoulder...</size>",
@@ -138,7 +139,8 @@ player: <size=30>You're welcome to take over anytime now...</size>",
 @"professor: Pay more attention!",
 @"professor: Oof!",
 @"professor: Ouch!",
-@"professor: You oaf!"};
+@"professor: You oaf!
+player: <size=30>Learn some insults from this century, maybe?</size>"};
                 string choice = options[Random.Range(0, options.Length)];
                 UIManager.instance.ShowMessage(choice);
             }
