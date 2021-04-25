@@ -43,7 +43,10 @@ public class Player : MonoBehaviour {
             Mathf.Max(
                 0.0f + thruster.ThrustAmount * 2.0f,
                 0.0f + rgd.velocity.magnitude / 500
-            ), Time.deltaTime * 2.0f
+            ),
+            thruster.ThrustAmount * 2.0f >
+            rgd.velocity.magnitude / 500 ?
+                1 : Time.deltaTime * 2.0f
           );
         engineSound.volume = Mathf.Lerp(engineSound.volume,
             Mathf.Max(

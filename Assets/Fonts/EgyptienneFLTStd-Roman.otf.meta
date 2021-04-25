@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 13577553111334365bd2e8bd22378512
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Egyptienne F LT Std
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: cce72ed57551b46d4b0ab2c535e31cfd, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
