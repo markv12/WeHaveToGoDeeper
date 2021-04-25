@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
     public Rigidbody2D rgd;
     public Thruster thruster;
     public Collider2D mainCollider;
+    public AudioSource engineSound;
 
     public ParticleSystem thrustParticles;
 
@@ -36,6 +37,8 @@ public class Player : MonoBehaviour {
     private const float SEA_LEVEL_Y = 10f;
     void Update() {
         if (DeathUIManager.instance.shown) return;
+
+        engineSound.pitch = rgd.velocity.magnitude;
 
         if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) {
             thruster.ChargeUp(Time.deltaTime * Thruster.THRUST_PER_SECOND);
@@ -71,6 +74,7 @@ public class Player : MonoBehaviour {
         int damage = (int)Mathf.Lerp(4.2f, 10.1f, magnitude);
         CameraShaker.instance.HitCameraShake(magnitude);
         Health -= damage;
+        AudioManager.Instance.PlayHitSound(damage / 5.0f);
     }
 
     private void Die() {

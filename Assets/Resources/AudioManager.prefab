@@ -694,6 +694,10 @@ MonoBehaviour:
   - {fileID: 6438628702598929822}
   - {fileID: 6438628704357483876}
   jumpSound: {fileID: 0}
+  exitWater: {fileID: 8300000, guid: d70df446149894f3f9068cd19f166869, type: 3}
+  enterWater: {fileID: 8300000, guid: 4aa0ef160d5984d4dada46dfe611ff37, type: 3}
+  hit: {fileID: 8300000, guid: 3523627264a3f4ec8a5e2d40358777a5, type: 3}
+  boost: {fileID: 8300000, guid: 315f1eb9a708e42b3862c7defeeae05c, type: 3}
 --- !u!1 &6438628704357483877
 GameObject:
   m_ObjectHideFlags: 0
