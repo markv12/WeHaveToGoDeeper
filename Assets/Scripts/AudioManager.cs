@@ -35,13 +35,12 @@ public class AudioManager : MonoBehaviour
 
 	public AudioClip hit;
 	public void PlayHitSound(float intensity) {
-		Debug.Log(intensity);
 		PlaySFX(hit, 0.1f * intensity, intensity * 0.2f);
 	}
 
 	public AudioClip boost;
 	public void PlayBoostSound(float intensity) {
-		PlaySFX(boost, 0.6f * intensity / 2500, 1 + intensity/10000);
+		PlaySFX(boost, 0.45f * intensity / 2500, 1 + intensity/10000);
 	}
 
 	public void PlaySFX(AudioClip clip, float volume)
