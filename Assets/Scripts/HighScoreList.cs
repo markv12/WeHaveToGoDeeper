@@ -9,7 +9,7 @@ public class HighScoreList : MonoBehaviour {
     public CanvasGroup around;
     public Transform aroundTransform;
 
-    void Start() {
+    public void LoadBestScores() {
         StartCoroutine(ScoresLoader.Instance.LoadBestScoresFromServer(DisplayHighScores));
 
         void DisplayHighScores(List<HighScore> highScores) {

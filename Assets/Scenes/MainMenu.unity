@@ -2023,6 +2023,7 @@ MonoBehaviour:
   startButton: {fileID: 841531193}
   startButtonCG: {fileID: 841531196}
   nameInput: {fileID: 521754145}
+  hsl: {fileID: 360221994}
 --- !u!114 &1007617259
 MonoBehaviour:
   m_ObjectHideFlags: 0
