@@ -36,6 +36,7 @@ public class Player : MonoBehaviour {
         mainPlayer = this;
     }
 
+    private const float SEA_LEVEL_Y = 10f;
     void Update() {
         if (DeathUIManager.instance.shown) return;
 
@@ -56,6 +57,7 @@ public class Player : MonoBehaviour {
             ApplyBrake();
         }
         UIManager.instance.ShowDepth(-mainT.position.y);
+        rgd.gravityScale = (mainT.position.y > SEA_LEVEL_Y) ? 3.333f : 0;
     }
 
     private void ApplyBrake() {
