@@ -54,6 +54,7 @@ public class UIManager : MonoBehaviour {
     public void ShowMessage(string message) {
         if (IsDialoguePlaying) return;
 
+        StopTyping();
         dialogueText.text = "";
         dialogueGroup.alpha = 0;
         dialogueBox.gameObject.SetActive(true);
@@ -107,6 +108,7 @@ public class UIManager : MonoBehaviour {
                 dialogueGroup.alpha = 1-progress;
             });
             yield return showLineRoutineInner;
+            StopTyping();
             showLineRoutine = null;
             showLineRoutineInner = null;
         }
@@ -132,6 +134,10 @@ public class UIManager : MonoBehaviour {
             utility.HandleNonTextCommandsOnly(commands);
         }
         return hasText;
+    }
+
+    public void StopTyping() {
+        this.EnsureCoroutineStopped(ref typeRoutine);
     }
 
     private void SetTextBoxHeight(string totalTextMessage) {
