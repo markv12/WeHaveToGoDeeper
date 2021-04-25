@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
@@ -22,9 +19,6 @@ public class Player : MonoBehaviour {
             return health;
         }
         set {
-            if (value < health) {
-                CameraShaker.instance.HitCameraShake();
-            }
             health = value;
             UIManager.instance.ShowHealthAmount(((float)health) / ((float)MAX_HEALTH));
             if (health <= 0) {
@@ -73,11 +67,10 @@ public class Player : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Hurt")) {
-            Health -= 25;
-        } else {
-            Health -= 5;
-        }
+        float magnitude = Mathf.InverseLerp(0, 25, rgd.velocity.magnitude);
+        int damage = collision.gameObject.CompareTag("Hurt") ? 25 : 5;
+        CameraShaker.instance.HitCameraShake(magnitude);
+        Health -= damage;
     }
 
     private void Die() {
