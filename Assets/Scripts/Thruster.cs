@@ -11,7 +11,7 @@ public class Thruster : MonoBehaviour {
     private static readonly Vector3 fillFullPos = new Vector3(0.3f, 0, 0);
 
     private float thrustAmount = 0;
-    private float ThrustAmount {
+    public float ThrustAmount {
         get {
             return thrustAmount;
         }

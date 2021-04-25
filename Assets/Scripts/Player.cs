@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
             }
         }
     }
+    private bool isFlying = false;
 
     void Start() {
         Health = MAX_HEALTH;
@@ -38,8 +39,18 @@ public class Player : MonoBehaviour {
     void Update() {
         if (DeathUIManager.instance.shown) return;
 
-        engineSound.pitch = 1.0f + rgd.velocity.magnitude / 300;
-        engineSound.volume = 0.009f + rgd.velocity.magnitude / 1000;
+        engineSound.pitch = Mathf.Lerp(engineSound.pitch,
+            Mathf.Max(
+                0.0f + thruster.ThrustAmount * 2.0f,
+                0.0f + rgd.velocity.magnitude / 500
+            ), Time.deltaTime * 2.0f
+          );
+        engineSound.volume = Mathf.Lerp(engineSound.volume,
+            Mathf.Max(
+                0.0f + thruster.ThrustAmount * 0.05f,
+                0.002f + rgd.velocity.magnitude / 1000
+                ), Time.deltaTime * 2.0f
+          ); ;
 
         if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) {
             thruster.ChargeUp(Time.deltaTime * Thruster.THRUST_PER_SECOND);
@@ -57,6 +68,14 @@ public class Player : MonoBehaviour {
         }
         UIManager.instance.ShowDepth(-mainT.position.y);
         rgd.gravityScale = (mainT.position.y > SEA_LEVEL_Y) ? 3.333f : 0;
+        if (!isFlying && mainT.position.y > SEA_LEVEL_Y) {
+            isFlying = true;
+            AudioManager.Instance.PlayExitWaterSound(rgd.velocity.magnitude / 1000);
+        }
+        else if (isFlying && mainT.position.y <= SEA_LEVEL_Y) {
+            isFlying = false;
+            AudioManager.Instance.PlayEnterWaterSound(rgd.velocity.magnitude / 1000);
+        }
     }
 
     private void Thrust() {
@@ -80,6 +99,8 @@ public class Player : MonoBehaviour {
     }
 
     private void Die() {
+        rgd.velocity = new Vector2(0.0f, 0.0f);
+        engineSound.volume = 0.0f;
         string nameToUse = string.IsNullOrWhiteSpace(SessionData.playerName) ? "Some Poor Soul" : SessionData.playerName;
         DeathUIManager.instance.Show();
         DeathPointsLoader.Instance.AddDeathPoint(transform.position.x, transform.position.y, nameToUse);

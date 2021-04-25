@@ -24,23 +24,23 @@ public class AudioManager : MonoBehaviour
 	private int audioSourceIndex = 0;
 
 	public AudioClip exitWater;
-	public void PlayExitWaterSound() {
-		PlaySFX(exitWater, 0.75f);
+	public void PlayExitWaterSound(float intensity) {
+		PlaySFX(exitWater, 1.4f * intensity);
 	}
 
 	public AudioClip enterWater;
-	public void PlayEnterWaterSound() {
-		PlaySFX(enterWater, 0.75f);
+	public void PlayEnterWaterSound(float intensity) {
+		PlaySFX(enterWater, 8.0f * intensity);
 	}
 
 	public AudioClip hit;
 	public void PlayHitSound(float intensity) {
-		PlaySFX(hit, 0.1f * intensity, intensity * 0.2f);
+		PlaySFX(hit, 0.06f * intensity, intensity * 0.2f);
 	}
 
 	public AudioClip boost;
 	public void PlayBoostSound(float intensity) {
-		PlaySFX(boost, 0.45f * intensity / 2500, 1 + intensity/10000);
+		PlaySFX(boost, 0.3f * intensity / 2500, 1 + intensity/10000);
 	}
 
 	public void PlaySFX(AudioClip clip, float volume)
