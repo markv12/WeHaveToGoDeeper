@@ -36,6 +36,7 @@ public class Player : MonoBehaviour {
     void Start() {
         Health = MAX_HEALTH;
         mainPlayer = this;
+        SessionData.startTime = Time.time;
     }
 
     private const float SEA_LEVEL_Y = 10f;
