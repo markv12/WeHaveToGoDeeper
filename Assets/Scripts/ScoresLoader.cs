@@ -7,10 +7,6 @@ using UnityEngine.Networking;
 public class ScoresLoader : Singleton<ScoresLoader> {
     readonly string levelName = "test";
 
-    public void AddHighScore(float score, string name) {
-        StartCoroutine(AddHighScoreToServer(score, name));
-    }
-
     public IEnumerator LoadBestScoresFromServer(Action<List<HighScore>> callback) {
         string url = "https://ld48-server.herokuapp.com/score/best/" + levelName + "/bottom/5";
 
@@ -28,7 +24,24 @@ public class ScoresLoader : Singleton<ScoresLoader> {
         //Debug.Log("Received " + hs.list().Count + " high scores");
     }
 
-    IEnumerator AddHighScoreToServer(float score, string name) {
+    public IEnumerator LoadNearbyScoresFromServer(string name, Action<List<HighScore>> callback) {
+        string url = "https://ld48-server.herokuapp.com/score/around/" + levelName + "/" + name + "/5";
+
+        using UnityWebRequest webRequest = UnityWebRequest.Get(url);
+        yield return webRequest.SendWebRequest();
+
+        bool success = WebRequestErrorHandler(webRequest);
+        if (!success) yield break;
+
+        string highScoreString = "{\"highScores\":" + webRequest.downloadHandler.text + "}";
+        HighScores hs = JsonUtility.FromJson<HighScores>(highScoreString);
+
+        callback?.Invoke(hs.list());
+
+        //Debug.Log("Received " + hs.list().Count + " high scores");
+    }
+
+    public IEnumerator AddHighScoreToServer(float score, string name, Action callback) {
         Debug.Log("Adding score for user " + name);
 
         string url = "https://ld48-server.herokuapp.com/score/add/" + levelName + "/" + name + "/" + score.ToString();
@@ -38,6 +51,8 @@ public class ScoresLoader : Singleton<ScoresLoader> {
 
         bool success = WebRequestErrorHandler(webRequest);
         if (!success) yield break;
+
+        callback?.Invoke();
 
         Debug.Log("Added new score");
     }
