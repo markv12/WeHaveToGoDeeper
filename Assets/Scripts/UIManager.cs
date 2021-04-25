@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour {
     private float goalDepth;
 
     public TMP_Text dialogueText;
+    public TMP_Text nameText;
+    public GameObject nameBox;
     public RectTransform dialogueBox;
     public CanvasGroup dialogueGroup;
     public AudioClip typingClip;
@@ -42,6 +44,7 @@ public class UIManager : MonoBehaviour {
 
     private static readonly WaitForSeconds typeWait = new WaitForSeconds(3f);
     private static readonly string[] separators = new string[] { Environment.NewLine, "\r\n", "\r", "\n" };
+    private static readonly string[] nameSeparator = new string[] { ":" };
     private Coroutine showLineRoutine = null;
     private Coroutine showLineRoutineInner = null;
     public void ShowMessage(string message) {
@@ -59,10 +62,21 @@ public class UIManager : MonoBehaviour {
             yield return showLineRoutineInner;
 
             string[] lines = message.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+
             for (int i = 0; i < lines.Length; i++) {
                 string line = lines[i];
+
+                string[] lineParts = line.Split(nameSeparator, StringSplitOptions.RemoveEmptyEntries);
+                Debug.Log(lineParts.Length);
+                string theName = lineParts.Length >= 2 ? lineParts[0] : "";
+                if(theName.ToLower() == "player") {
+                    theName = SessionData.playerName;
+                }
+                nameBox.SetActive(!string.IsNullOrWhiteSpace(theName));
+                nameText.text = theName;
+                string theText = lineParts.Length >= 2 ? lineParts[1] : lineParts[0];
                 bool lineComplete = false;
-                Type(line, delegate {
+                Type(theText, delegate {
                     lineComplete = true;
                 });
                 while (!lineComplete) {
