@@ -69,11 +69,9 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 1d8b6860febcea04dbea8bc1c8a2bfab, type: 3}
     - {fileID: 2800000, guid: 1fe33fa7ee466aa4aa9338825ccafa8d, type: 3}
     - {fileID: 2800000, guid: da943b29f5915854ca9ff92cefbe6895, type: 3}
-    - {fileID: 2800000, guid: 42787837cac6f4872b353528fca5ef32, type: 3}
     - {fileID: 2800000, guid: 200cf929e04974bb7a4552f96a30afb9, type: 3}
-    - {fileID: 2800000, guid: 5b910e53ee2721e43ada67d46e231f53, type: 3}
     - {fileID: 2800000, guid: 154a66dee56e32c41a9061e528c98219, type: 3}
-    totalSpriteSurfaceArea: 3043670
+    totalSpriteSurfaceArea: 3041470
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -84,13 +82,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: cffc717238214f242b035588b23f2816, type: 3}
   - {fileID: 21300000, guid: 8d7024920b336e54f83fc06892a5596c, type: 3}
   - {fileID: 21300000, guid: 08cc3ee2e9bdae14090fa0b30c8fb2b1, type: 3}
-  - {fileID: 21300000, guid: 5b910e53ee2721e43ada67d46e231f53, type: 3}
   - {fileID: 21300000, guid: d52f9673e4416f64da7a765896330bac, type: 3}
   - {fileID: 21300000, guid: 05b4b4958ac050541bea1a35d530afc1, type: 3}
   - {fileID: 21300000, guid: a66e5c463f483574b883409fda505780, type: 3}
   - {fileID: 21300000, guid: 0badbda6ca5ff6845b3baf806353c525, type: 3}
   - {fileID: 21300000, guid: 8945bae6be1e37b489c39e219fab71a1, type: 3}
-  - {fileID: 21300000, guid: 42787837cac6f4872b353528fca5ef32, type: 3}
   - {fileID: 21300000, guid: 1fe33fa7ee466aa4aa9338825ccafa8d, type: 3}
   - {fileID: 21300000, guid: 24857dc82aba25f41b51ecb84e4494b6, type: 3}
   - {fileID: 21300000, guid: 6106ba19cb0d64f45bb7535fc4da25aa, type: 3}
@@ -126,13 +122,11 @@ SpriteAtlas:
   - Atlantis-1
   - Atlantis-2
   - bg-mountains
-  - water-color
   - SKY
   - plant-1
   - Atlantis-plant
   - Atlantis-plant-3
   - Atlantis-4
-  - uiGradientDown
   - submarine-engine
   - Atlantis-3.2
   - Atlantis-5
