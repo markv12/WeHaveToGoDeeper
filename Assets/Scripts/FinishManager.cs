@@ -14,16 +14,20 @@ public class FinishManager : MonoBehaviour {
 
         timeLabel.text = time.ToString("N2") + "s";
 
-        if (time < 0.1f) return;
-
-        StartCoroutine(
-            ScoresLoader.Instance.AddHighScoreToServer(
-                time, SessionData.playerName, delegate {
-                    highScoreList.LoadBestScores();
-                    highScoreList.LoadScoresAround(SessionData.playerName);
-                }
-            )
-        );
+        if (time > 0.1f) {
+            StartCoroutine(
+                ScoresLoader.Instance.AddHighScoreToServer(
+                    time, SessionData.playerName, delegate {
+                        highScoreList.LoadBestScores();
+                        highScoreList.LoadScoresAround(SessionData.playerName);
+                    }
+                )
+            );
+        }
+        else {
+            highScoreList.LoadBestScores();
+            highScoreList.LoadScoresAround(SessionData.playerName);
+        }
     }
 
     void RestartGame() {
