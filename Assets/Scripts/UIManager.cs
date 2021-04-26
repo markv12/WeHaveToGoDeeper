@@ -65,40 +65,23 @@ public class UIManager : MonoBehaviour {
         showLineRoutine = StartCoroutine(ShowLineRoutine(message));
 
         IEnumerator ShowLineRoutine(string message) {
+            string[] lines = message.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            if (lines.Length > 0) {
+                string firstLineText = SetupUIForLine(lines[0]);
+                DialogueUtility.ProcessInputString(firstLineText, out string totalTextMessage);
+                SetTextBoxHeight(totalTextMessage);
+            }
             float startAlpha = dialogueGroup.alpha;
             showLineRoutineInner = this.CreateAnimationRoutine(0.333f, delegate (float progress) {
                 dialogueGroup.alpha = Mathf.Lerp(startAlpha, 1, progress);
             });
             yield return showLineRoutineInner;
 
-            string[] lines = message.Split(separators, StringSplitOptions.RemoveEmptyEntries);
 
             for (int i = 0; i < lines.Length; i++) {
                 string line = lines[i];
 
-                string[] lineParts = line.Split(nameSeparator, 2, StringSplitOptions.RemoveEmptyEntries);
-                string theName = "";
-                string theText = lineParts[0];
-                Color theColor = new Color(195f/255f, 215f / 255f, 223f / 255f);
-                if (lineParts.Length >= 2) {
-                    theName = lineParts[0];
-                    theText = lineParts[1];
-                }
-      
-                Sprite charPortrait;
-                if(theName.ToLower() == "player") {
-                    theName = SessionData.playerName;
-                    charPortrait = playerPortrait;
-                    theColor = new Color(255f / 255f, 246f / 255f, 229f / 255f);
-                } else {
-                    theName = theName.Capitalized();
-                    charPortrait = professorPortrait;
-                }
-                theText = theText.Trim();
-                nameBox.SetActive(!string.IsNullOrWhiteSpace(theName));
-                nameText.text = theName;
-                mainPortrait.sprite = charPortrait;
-                dialogueBox.gameObject.GetComponent<Image>().color = theColor;
+                string theText = SetupUIForLine(line);
                 bool lineComplete = false;
                 Type(theText, delegate {
                     lineComplete = true;
@@ -108,17 +91,43 @@ public class UIManager : MonoBehaviour {
                 }
                 yield return new WaitForSeconds(GetWaitTimeForText(theText));
             }
-            mainPortrait.sprite = defaultPortrait;
-            nameBox.SetActive(false);
-
             showLineRoutineInner = this.CreateAnimationRoutine(0.3f, delegate (float progress) {
                 dialogueGroup.alpha = 1-progress;
             });
             yield return showLineRoutineInner;
+            mainPortrait.sprite = defaultPortrait;
+            nameBox.SetActive(false);
             StopTyping();
             showLineRoutine = null;
             showLineRoutineInner = null;
         }
+    }
+
+    private string SetupUIForLine(string line) {
+        string[] lineParts = line.Split(nameSeparator, 2, StringSplitOptions.RemoveEmptyEntries);
+        string theName = "";
+        string theText = lineParts[0];
+        Color theColor = new Color(195f / 255f, 215f / 255f, 223f / 255f);
+        if (lineParts.Length >= 2) {
+            theName = lineParts[0];
+            theText = lineParts[1];
+        }
+
+        Sprite charPortrait;
+        if (theName.ToLower() == "player") {
+            theName = SessionData.playerName;
+            charPortrait = playerPortrait;
+            theColor = new Color(255f / 255f, 246f / 255f, 229f / 255f);
+        } else {
+            theName = theName.Capitalized();
+            charPortrait = professorPortrait;
+        }
+        theText = theText.Trim();
+        nameBox.SetActive(!string.IsNullOrWhiteSpace(theName));
+        nameText.text = theName;
+        mainPortrait.sprite = charPortrait;
+        dialogueBox.gameObject.GetComponent<Image>().color = theColor;
+        return theText;
     }
 
     private float GetWaitTimeForText(string theText) {
