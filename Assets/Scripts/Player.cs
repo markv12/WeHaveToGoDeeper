@@ -84,7 +84,7 @@ professor: Silence, my lowly assistant! <p:normal>We must go <anim:wave><b><cspa
             AudioManager.Instance.PlayExitWaterSound(rgd.velocity.magnitude / 1000);
             UIManager.instance.ShowMessage(@"professor: No, no no! <p:normal>We have to go <u><b>deeper</b></u>, not higher!!
 player: Is it too late to go back???
-professor: <size=30>...Why are kids these days so shallow?</size>");
+professor: <size=25>...Why are kids these days so shallow?</size>");
         }
         else if (isFlying && mainT.position.y > SEA_LEVEL_Y + 100.0f) {
             UIManager.instance.ShowMessage(@"professor: Wait, where are you going!?! How are you doing that?
@@ -117,10 +117,9 @@ player: ""<i>Flyyy~ me to the <anim:wave>mooooon</anim>, <p:normal>let me <anim:
         if (Health > 0.0f && Random.value > 0.5f) {
             if (collision.gameObject.layer == fishLayer) {
                 string[] options = {@"professor: Did you see the <anim:shake>size</anim> of that beast?? <b><i>Terrifying!</i></b>",
-@"professor: <b><anim:shake><size=50>Gracious!</size></anim></b> What a brute!
+@"professor: <b><anim:shake><size=45>Gracious!</size></anim></b> What a brute!
 player: You just spit on me.",
-@"professor: I could have dodged that with my eyes closed!
-player: <size=30>But you're legally blind...</size>",
+@"professor: I could have dodged that with my eyes closed!",
 @"professor: Oof!",
 @"professor: Ouch!",
 @"professor: Yowch!",
@@ -131,22 +130,22 @@ player: <size=30>But you're legally blind...</size>",
             }
             else {
                 string[] options = {@"professor: Oof! Careful, fool!
-player: <size=30>Takes one to know one...</size>",
+player: <size=25>Takes one to know one...</size>",
 @"professor: Watch the stern! <p:normal>The <anim:shake>STERN!!</anim>",
 @"professor: That's a <b>wall!</b> Have you ever even driven this submarine before?
-player: <size=30>Maybe if you stopped talking over my shoulder...</size>",
+player: <size=25>Maybe if you stopped talking over my shoulder...</size>",
 @"professor: Just because I said I want to go <b><anim:wave>deeper</anim></b>, I don't mean that I want us to sink!!
-player: <size=30>You're welcome to take the wheel anytime now...</size>",
+player: <size=25>You're welcome to take the wheel anytime now...</size>",
 @"professor: Pay more attention!",
 @"professor: Oof!",
 @"professor: Ouch!",
 @"professor: You oaf!
-player: <size=30>Learn some insults from this century, maybe?</size>",
+player: <size=25>Learn some insults from this century, maybe?</size>",
 @"professor: Still gaining your sea legs, are you?",
 @"professor: I designed this sub so that even an operator of below-average intelligence could pilot it. What's <b>your</b> excuse!?",
 @"professor: You <anim:shake>clumsy cod!</anim>",
 @"professor: Oof! You nearly knocked me off my feet with that one!
-player: <i><size=30>Nearly? Well, there's always next time...</size></i>"};
+player: <i><size=25>""Nearly""? Well, there's always next time...</size></i>"};
                 string choice = options[Random.Range(0, options.Length)];
                 UIManager.instance.ShowMessage(choice);
             }
