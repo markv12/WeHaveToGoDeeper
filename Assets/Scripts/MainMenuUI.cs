@@ -8,9 +8,23 @@ public class MainMenuUI : MonoBehaviour {
     public GameObject errorText;
     public TMPro.TMP_InputField nameInput;
     public HighScoreList hsl;
+
+    public GameObject fullScreenToggle;
+    public Button fullScreenButton;
+    public Image fullScreenImage;
+    public Sprite disabledSprite;
+    public Sprite enabledSprite;
+
     bool canStart = false;
 
     private void Awake() {
+
+#if UNITY_WEBGL
+        fullScreenToggle.SetActive(false);
+#endif
+        fullScreenButton.onClick.AddListener(ToggleFullScreenSetting);
+        fullScreenImage.sprite = Screen.fullScreenMode == FullScreenMode.FullScreenWindow ? enabledSprite : disabledSprite;
+
         startButton.onClick.AddListener(StartGame);
         DeathPointsLoader.Instance.EnsureDeathPoints();
         hsl.LoadBestScores();
@@ -43,5 +57,16 @@ public class MainMenuUI : MonoBehaviour {
 
         SessionData.playerName = nameInput.text.Replace('?', '¿').Replace('/', '-').Replace('&', '+');
         SceneLoader.Instance.LoadScene("GameScene");
+    }
+
+    private void ToggleFullScreenSetting() {
+        bool isFullscreen = Screen.fullScreenMode == FullScreenMode.ExclusiveFullScreen || Screen.fullScreenMode == FullScreenMode.FullScreenWindow || Screen.fullScreenMode == FullScreenMode.MaximizedWindow;
+        isFullscreen = !isFullscreen;
+        if (isFullscreen) {
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+        } else {
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+        }
+        fullScreenImage.sprite = isFullscreen ? enabledSprite : disabledSprite;
     }
 }
