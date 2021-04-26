@@ -76,6 +76,7 @@ public class UIManager : MonoBehaviour {
                 string[] lineParts = line.Split(nameSeparator, 2, StringSplitOptions.RemoveEmptyEntries);
                 string theName = "";
                 string theText = lineParts[0];
+                Color theColor = new Color(195f/255f, 215f / 255f, 223f / 255f);
                 if (lineParts.Length >= 2) {
                     theName = lineParts[0];
                     theText = lineParts[1];
@@ -85,6 +86,7 @@ public class UIManager : MonoBehaviour {
                 if(theName.ToLower() == "player") {
                     theName = SessionData.playerName;
                     charPortrait = playerPortrait;
+                    theColor = new Color(255f / 255f, 246f / 255f, 229f / 255f);
                 } else {
                     theName = theName.Capitalized();
                     charPortrait = professorPortrait;
@@ -93,6 +95,7 @@ public class UIManager : MonoBehaviour {
                 nameBox.SetActive(!string.IsNullOrWhiteSpace(theName));
                 nameText.text = theName;
                 mainPortrait.sprite = charPortrait;
+                dialogueBox.gameObject.GetComponent<Image>().color = theColor;
                 bool lineComplete = false;
                 Type(theText, delegate {
                     lineComplete = true;
