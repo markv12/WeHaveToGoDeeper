@@ -13,7 +13,7 @@ public class IsoSpriteSortingManager : Singleton<IsoSpriteSortingManager>
         spriteList.Remove(spriteToRemove);
     }
 
-    void Update()
+    void Start()
     {
         UpdateSorting();
     }
