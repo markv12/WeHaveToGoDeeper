@@ -25,6 +25,7 @@ public class MainMenuUI : MonoBehaviour {
                 startButtonCG.alpha = 0.3f;
             }
         });
+        AudioManager preload = AudioManager.Instance;
     }
 
     void Update() {
