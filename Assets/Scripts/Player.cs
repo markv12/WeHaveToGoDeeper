@@ -133,7 +133,7 @@ player: You just spit on me.",
 player: <size=25>Takes one to know one...</size>",
 @"professor: Watch the stern! <p:normal>The <anim:shake>STERN!!</anim>",
 @"professor: That's a <b>wall!</b> Have you ever even driven this submarine before?
-player: <size=25>Maybe if you stopped talking over my shoulder...</size>",
+player: <size=25>No...</size>",
 @"professor: Just because I said I want to go <b><anim:wave>deeper</anim></b>, I don't mean that I want us to sink!!
 player: <size=25>You're welcome to take the wheel anytime now...</size>",
 @"professor: Pay more attention!",
@@ -156,8 +156,8 @@ player: <i><size=25>""Nearly""? Well, there's always next time...</size></i>"};
         rgd.velocity = new Vector2(0.0f, 0.0f);
         engineSound.volume = 0.0f;
         string nameToUse = string.IsNullOrWhiteSpace(SessionData.playerName) ? "Some Poor Soul" : SessionData.playerName;
-        DeathUIManager.instance.Show();
         DeathPointsLoader.Instance.AddDeathPoint(transform.position.x, transform.position.y, nameToUse);
+        DeathUIManager.instance.Show();
         // todo play death animation
     }
 
