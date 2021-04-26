@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5068026011896862850}
   - component: {fileID: 2851476747670633355}
   - component: {fileID: -8778413573142876472}
-  - component: {fileID: 4163228971078252555}
   m_Layer: 0
   m_Name: column top
   m_TagString: Untagged
@@ -97,60 +96,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderersToSort: []
---- !u!60 &4163228971078252555
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4958623702984476480}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 4ff6c2662a48d2a458f278f85e7d5243, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.8, y: 1.88}
-    newSize: {x: 5.68, y: 4.68}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 2.8338375, y: 0.4932307}
-      - {x: 2.5605745, y: 0.6259486}
-      - {x: 2.6507137, y: 0.91571}
-      - {x: 2.2955356, y: 1.4149593}
-      - {x: 2.500425, y: 1.6015407}
-      - {x: 2.264924, y: 2.2547908}
-      - {x: 1.8396083, y: 2.0803492}
-      - {x: 1.6505954, y: 2.3149986}
-      - {x: 0.84976906, y: 1.9566492}
-      - {x: 0.52150977, y: 2.1671658}
-      - {x: 0.03704016, y: 1.9190974}
-      - {x: -0.2336691, y: 1.9794642}
-      - {x: -0.7920492, y: 1.6726832}
-      - {x: -1.4443934, y: 1.0055506}
-      - {x: -1.7027704, y: 0.52055305}
-      - {x: -2.4323115, y: -0.13877004}
-      - {x: -2.4229097, y: -0.4882726}
-      - {x: -2.8045373, y: -1.0573858}
-      - {x: -2.5872095, y: -1.2705053}
-      - {x: -2.752047, y: -1.5183904}
-      - {x: -2.6291099, y: -1.6461401}
-      - {x: -2.335293, y: -1.6045415}
-      - {x: -2.324468, y: -1.9082941}
-      - {x: -1.8645244, y: -1.9543705}
-      - {x: -1.7549434, y: -2.2977796}
-      - {x: -0.76681536, y: -2.2342873}
-      - {x: 0.36953917, y: -1.7621937}
-      - {x: 0.72091675, y: -2.0397825}
-      - {x: 1.2212464, y: -1.7475779}
-      - {x: 2.0762773, y: -1.3763179}
-      - {x: 2.629113, y: -0.8289278}
-      - {x: 2.7088377, y: -0.19847411}
