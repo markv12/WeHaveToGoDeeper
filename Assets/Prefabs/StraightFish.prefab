@@ -45,8 +45,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishT: {fileID: 4314740828734658299}
+  fishRenderer: {fileID: 4314740828734658052}
   endPosition: {x: 92.28513, y: 4.7862062}
   speed: 20
+  sprites:
+  - {fileID: 21300000, guid: 8b605a6287bc1a24f8d608c17caa105c, type: 3}
+  - {fileID: 21300000, guid: 10bfb0c5cd7f47f4981be2d522818ab7, type: 3}
+  - {fileID: 21300000, guid: 3aef0d7926cbb6040868a3bc4055f4d6, type: 3}
+  - {fileID: 21300000, guid: cb987c6777776bd47b434012bd21be06, type: 3}
+  - {fileID: 21300000, guid: 1dab519615849a44dba04ad121506c93, type: 3}
+  - {fileID: 21300000, guid: 8d0554c39f458ea40b648ad2e6629677, type: 3}
+  - {fileID: 21300000, guid: 4120c569c49dd7a40afa994af6d516e9, type: 3}
+  - {fileID: 21300000, guid: ba0789e609ad5e347a883df4fa1bdbb9, type: 3}
+  - {fileID: 21300000, guid: c45b012e1da2386458880987c9761276, type: 3}
+  - {fileID: 21300000, guid: 34871a6ed43792c4dbf6ab6284beb576, type: 3}
+  - {fileID: 21300000, guid: 954431790be5d9a4780d160c867d8e81, type: 3}
+  - {fileID: 21300000, guid: 2ec3b77df326cb54f9bb32df4fc452aa, type: 3}
 --- !u!1 &4314740828734658298
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4314740828734658299}
   - component: {fileID: 4314740828734658052}
-  - component: {fileID: 4314740828734658053}
+  - component: {fileID: 1641837477616480067}
   m_Layer: 8
   m_Name: FishSprite
   m_TagString: Untagged
@@ -74,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 4314740828734658298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 3, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4314740828177909016}
   m_RootOrder: 0
@@ -119,9 +133,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 501bfb65b7ce0f44d87822325558d1a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8b605a6287bc1a24f8d608c17caa105c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.648, y: 0.4}
@@ -130,7 +144,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4314740828734658053
+--- !u!61 &1641837477616480067
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,16 +157,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00000047683716, y: -0.12}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.648, y: 0.4}
+    pivot: {x: 0.5, y: 0.6}
+    oldSize: {x: 8.113661, y: 2.8999999}
     newSize: {x: 0.648, y: 0.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.648, y: 0.4}
+  m_Size: {x: 7.874604, y: 1.885716}
   m_EdgeRadius: 0
