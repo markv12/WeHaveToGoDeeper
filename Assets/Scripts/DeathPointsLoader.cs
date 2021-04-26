@@ -11,6 +11,7 @@ public class DeathPointsLoader : Singleton<DeathPointsLoader> {
     bool hasLoaded = false;
 
     public void AddDeathPoint(float x, float y, string name) {
+        deathPoints.Add(new DeathPoint(x, y, name));
         StartCoroutine(AddDeathPointToServer(x, y, name));
     }
 
@@ -40,19 +41,14 @@ public class DeathPointsLoader : Singleton<DeathPointsLoader> {
     IEnumerator AddDeathPointToServer(float x, float y, string name) {
         //Debug.Log("Adding death point for level " + levelName);
 
-
         string url = "https://ld48-server.herokuapp.com/deaths/add/" + levelName + "/" + x.ToString() + "/" + y.ToString() + "/" + name;
         //Debug.Log(url);
 
         using UnityWebRequest webRequest = UnityWebRequest.Get(url);
         yield return webRequest.SendWebRequest();
 
-        // we want this to be a little slow anyway so it doesn't display the first time
-        deathPoints.Add(new DeathPoint(x, y, name));
-
         bool success = WebRequestErrorHandler(webRequest);
         if (!success) yield break;
-
 
         //Debug.Log("Added new death point");
         //deathPoints.ForEach(delegate (DeathPoint p) {
