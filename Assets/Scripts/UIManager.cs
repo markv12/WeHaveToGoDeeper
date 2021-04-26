@@ -54,20 +54,20 @@ public class UIManager : MonoBehaviour {
     private static readonly char[] nameSeparator = new char[] { ':' };
     private Coroutine showLineRoutine = null;
     private Coroutine showLineRoutineInner = null;
-    public void ShowMessage(string message) {
-        if (IsDialoguePlaying) return;
+    public void ShowMessage(string message, bool overrideCurrentMessage = false) {
+        if (IsDialoguePlaying && !overrideCurrentMessage) return;
 
         StopTyping();
         dialogueText.text = "";
-        dialogueGroup.alpha = 0;
         dialogueBox.gameObject.SetActive(true);
         this.EnsureCoroutineStopped(ref showLineRoutine);
         this.EnsureCoroutineStopped(ref showLineRoutineInner);
         showLineRoutine = StartCoroutine(ShowLineRoutine(message));
 
         IEnumerator ShowLineRoutine(string message) {
-            showLineRoutineInner = this.CreateAnimationRoutine(0.3f, delegate (float progress) {
-                dialogueGroup.alpha = progress;
+            float startAlpha = dialogueGroup.alpha;
+            showLineRoutineInner = this.CreateAnimationRoutine(0.333f, delegate (float progress) {
+                dialogueGroup.alpha = Mathf.Lerp(startAlpha, 1, progress);
             });
             yield return showLineRoutineInner;
 
