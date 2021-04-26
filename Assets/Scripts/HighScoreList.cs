@@ -31,7 +31,7 @@ public class HighScoreList : MonoBehaviour {
         StartCoroutine(ScoresLoader.Instance.LoadNearbyScoresFromServer(name, DisplayNearbyScores));
 
         void DisplayNearbyScores(List<HighScore> scores) {
-            if (scores[(int)Mathf.Round(scores.Count / 2)].index < 6) return;
+            if (scores[(int)Mathf.Round(scores.Count / 2)].index < 5) return;
 
             around.alpha = 1;
             float offset = 0.0f;

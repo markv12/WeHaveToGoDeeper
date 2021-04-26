@@ -25,7 +25,7 @@ public class ScoresLoader : Singleton<ScoresLoader> {
     }
 
     public IEnumerator LoadNearbyScoresFromServer(string name, Action<List<HighScore>> callback) {
-        string url = "https://ld48-server.herokuapp.com/score/around/" + levelName + "/" + name + "/5";
+        string url = "https://ld48-server.herokuapp.com/score/around/" + levelName + "/" + name + "/6";
 
         using UnityWebRequest webRequest = UnityWebRequest.Get(url);
         yield return webRequest.SendWebRequest();
@@ -53,7 +53,7 @@ public class ScoresLoader : Singleton<ScoresLoader> {
 
         callback?.Invoke();
 
-        Debug.Log("Added new score");
+        //Debug.Log("Added new score");
     }
 
     bool WebRequestErrorHandler(UnityWebRequest webRequest) {

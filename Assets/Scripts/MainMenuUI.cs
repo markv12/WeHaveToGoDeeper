@@ -5,6 +5,7 @@ public class MainMenuUI : MonoBehaviour {
 
     public Button startButton;
     public CanvasGroup startButtonCG;
+    public GameObject errorText;
     public TMPro.TMP_InputField nameInput;
     public HighScoreList hsl;
     bool canStart = false;
@@ -35,7 +36,10 @@ public class MainMenuUI : MonoBehaviour {
     }
 
     void StartGame() {
-        if (!canStart) return;
+        if (!canStart) {
+            errorText.SetActive(true);
+            return;
+        }
 
         SessionData.playerName = nameInput.text.Replace('?', '¿').Replace('/', '-').Replace('&', '+');
         SceneLoader.Instance.LoadScene("GameScene");
