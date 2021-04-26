@@ -1207,7 +1207,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 25
-  m_CharacterLimit: 24
+  m_CharacterLimit: 12
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -1264,8 +1264,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: -277}
-  m_SizeDelta: {x: 600, y: 64.3137}
+  m_AnchoredPosition: {x: 3, y: -199}
+  m_SizeDelta: {x: 400.8, y: 64.3137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &521754147
 MonoBehaviour:
@@ -1969,8 +1969,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: -401.476}
-  m_SizeDelta: {x: 600, y: 128.379}
+  m_AnchoredPosition: {x: 3, y: -388}
+  m_SizeDelta: {x: 502.3, y: 234.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &841531193
 MonoBehaviour:
@@ -2036,8 +2036,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 0cf45435fe0854e78a6f328e21b915b4, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2944,7 +2944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -6.0979}
+  m_AnchoredPosition: {x: 0, y: 21}
   m_SizeDelta: {x: 0, y: -12.1958}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1541380231
@@ -3399,7 +3399,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 215.28, y: 50}
+  m_AnchoredPosition: {x: 215.28, y: 70}
   m_SizeDelta: {x: 399.436, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1904762348
@@ -3431,8 +3431,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 2785017855
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.64705884}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3449,8 +3449,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3459,7 +3459,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 24.4
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
