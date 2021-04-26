@@ -124,6 +124,7 @@ player: <size=30>But you're legally blind...</size>",
 @"professor: Oof!",
 @"professor: Ouch!",
 @"professor: Yowch!",
+@"professor: You <anim:shake>clumsy cod!</anim> And I don't mean the fish!",
             };
                 string choice = options[Random.Range(0, options.Length)];
                 UIManager.instance.ShowMessage(choice);
@@ -135,12 +136,17 @@ player: <size=30>Takes one to know one...</size>",
 @"professor: That's a <b>wall!</b> Have you ever even driven this submarine before?
 player: <size=30>Maybe if you stopped talking over my shoulder...</size>",
 @"professor: Just because I said I want to go <b><anim:wave>deeper</anim></b>, I don't mean that I want us to sink!!
-player: <size=30>You're welcome to take over anytime now...</size>",
+player: <size=30>You're welcome to take the wheel anytime now...</size>",
 @"professor: Pay more attention!",
 @"professor: Oof!",
 @"professor: Ouch!",
 @"professor: You oaf!
-player: <size=30>Learn some insults from this century, maybe?</size>"};
+player: <size=30>Learn some insults from this century, maybe?</size>",
+@"professor: Still gaining your sea legs, are you?",
+@"professor: I designed this sub so that even an operator of below-average intelligence could pilot it. What's <b>your</b> excuse!?",
+@"professor: You <anim:shake>clumsy cod!</anim>",
+@"professor: Oof! You nearly knocked me off my feet with that one!
+player: <i><size=30>Nearly? Well, there's always next time...</size></i>"};
                 string choice = options[Random.Range(0, options.Length)];
                 UIManager.instance.ShowMessage(choice);
             }
