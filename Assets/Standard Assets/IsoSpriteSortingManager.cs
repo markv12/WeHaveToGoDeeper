@@ -30,6 +30,7 @@ public class IsoSpriteSortingManager : Singleton<IsoSpriteSortingManager>
         for (int i = 0; i < spriteList.Count; i++)
         {
             spriteList[i].RendererSortingOrder = orderCurrent;
+            orderCurrent++;
         }
     }
 

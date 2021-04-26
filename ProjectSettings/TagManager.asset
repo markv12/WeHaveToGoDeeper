@@ -43,3 +43,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Item Layer 1
+    uniqueID: 1744999437
+    locked: 0
+  - name: Item Layer 2
+    uniqueID: 3024268319
+    locked: 0
+  - name: Item Layer 3
+    uniqueID: 1017629063
+    locked: 0
+  - name: Item Layer 4
+    uniqueID: 2476065597
+    locked: 0
