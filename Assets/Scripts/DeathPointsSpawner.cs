@@ -15,12 +15,13 @@ public class DeathPointsSpawner : MonoBehaviour {
             if (!okayToSpawn) yield break;
             for (int i = 0; i < deathPoints.Count; i++) {
                 DeathPoint dp = deathPoints[i];
-                SpawnOnePoint(dp);
-                yield return new WaitForSecondsRealtime(0.02f);
+                bool didSpawn = SpawnOnePoint(dp);
+                if (didSpawn)
+                    yield return new WaitForSecondsRealtime(0.02f);
             }
         }
 
-        void SpawnOnePoint(DeathPoint dp) {
+        bool SpawnOnePoint(DeathPoint dp) {
             Vector2 viewportPoint = CameraManager.mainCamera.WorldToViewportPoint(new Vector3(dp.x, dp.y, 0));
 
             if (
@@ -29,7 +30,7 @@ public class DeathPointsSpawner : MonoBehaviour {
                 viewportPoint.x > 1 ||
                 viewportPoint.y > 1
             )
-                return;
+                return false;
 
             GameObject point = Instantiate(deathPoint, gameObject.transform);
             Vector2 screenPoint = CameraManager.mainCamera.WorldToScreenPoint(new Vector3(dp.x, dp.y, 0));
@@ -39,6 +40,7 @@ public class DeathPointsSpawner : MonoBehaviour {
                 0.0f);
 
             point.transform.Find("Positioner").Find("Name").gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = dp.name;
+            return true;
         }
     }
 
