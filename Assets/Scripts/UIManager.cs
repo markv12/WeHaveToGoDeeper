@@ -10,10 +10,12 @@ public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
     public Image healthBar;
-    public Image depthBar;
+    public RectTransform depthBar;
+    public RectTransform depthIcon;
     public CanvasGroup canvasGroup;
     public Transform goalTransform;
     private float goalDepth;
+    private float depthElementHeight;
 
     public TMP_Text dialogueText;
     public TMP_Text nameText;
@@ -32,6 +34,7 @@ public class UIManager : MonoBehaviour {
 
     private void Awake() {
         goalDepth = -goalTransform.position.y;
+        depthElementHeight = depthBar.rect.height;
         instance = this;
         DeathPointsLoader.Instance.EnsureDeathPoints();
         utility = new DialogueVertexAnimator(dialogueText, null, PlayFromNextSource);
@@ -166,6 +169,6 @@ public class UIManager : MonoBehaviour {
     }
 
     public void ShowDepth(float depth) {
-        depthBar.fillAmount = Mathf.Min(1, Mathf.Max(0, depth / goalDepth));
+        depthIcon.anchoredPosition = new Vector2(depthIcon.anchoredPosition.x, -1f * depthElementHeight * (depth/goalDepth));
     }
 }
