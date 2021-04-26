@@ -32,15 +32,6 @@ public class IsoSpriteSorting : MonoBehaviour
     }
 #endif
 
-    void Awake()
-    {
-        if (Application.isPlaying)
-        {
-            _ = IsoSpriteSortingManager.Instance; //bring the instance into existence so the Update function will run;
-            Setup();
-        }
-    }
-
     private void Setup()
     {
         t = transform;
@@ -78,14 +69,6 @@ public class IsoSpriteSorting : MonoBehaviour
             {
                 renderersToSort[j].sortingOrder = value;
             }
-        }
-    }
-
-    void OnDestroy()
-    {
-        if (Application.isPlaying)
-        {
-            Unregister();
         }
     }
 

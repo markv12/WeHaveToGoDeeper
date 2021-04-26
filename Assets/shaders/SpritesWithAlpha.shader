@@ -63,7 +63,7 @@ Shader "Sprites/WithAlphaTexture"
                 float2 uv2 = uv;
                 uv2.x -= _Time.y * 0.5;
                 fixed4 color = tex2D(_MainTex, uv2);
-                color.a = tex2D(_AlphaTex, uv);
+                color.a = color.a * tex2D(_AlphaTex, uv);
 
                 return color;
             }

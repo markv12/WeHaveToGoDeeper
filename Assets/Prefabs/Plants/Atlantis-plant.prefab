@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8906921876956008330}
   - component: {fileID: 8906921876956008329}
+  - component: {fileID: 7652789649057555026}
   m_Layer: 0
   m_Name: Atlantis-plant
   m_TagString: Untagged
@@ -82,3 +83,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7652789649057555026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8906921876956008328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1bb478cfc756f42a5cd7f2198eaa9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderersToSort: []
