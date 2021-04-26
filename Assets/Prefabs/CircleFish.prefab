@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1408511583564169477}
   - component: {fileID: 1408511583564169531}
-  - component: {fileID: 1408511583564169476}
+  - component: {fileID: 3166947351710327600}
   m_Layer: 8
   m_Name: FishSprite
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1408511583564169478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 12.15, z: 0}
-  m_LocalScale: {x: 10, y: 3, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1408511584868944947}
   m_RootOrder: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 501bfb65b7ce0f44d87822325558d1a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d4c760213ab68264eb9319c980f5cd7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1408511583564169476
+--- !u!61 &3166947351710327600
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,22 +92,22 @@ BoxCollider2D:
   m_GameObject: {fileID: 1408511583564169478}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 4ff6c2662a48d2a458f278f85e7d5243, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.1753807, y: -0.052614212}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.648, y: 0.4}
+    oldSize: {x: 5.0399995, y: 3.5240622}
     newSize: {x: 0.648, y: 0.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.648, y: 0.4}
+  m_Size: {x: 4.1981735, y: 1.5013332}
   m_EdgeRadius: 0
 --- !u!1 &1408511584868944956
 GameObject:
@@ -154,4 +154,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerT: {fileID: 1408511584868944947}
+  fishRenderer: {fileID: 1408511583564169531}
+  sprites:
+  - {fileID: 21300000, guid: d4c760213ab68264eb9319c980f5cd7d, type: 3}
+  - {fileID: 21300000, guid: 829cd94f973fd3d46af35cdb0023c8cd, type: 3}
+  - {fileID: 21300000, guid: 44d0689862fba0a49b8c4b0ec1d46e4b, type: 3}
+  - {fileID: 21300000, guid: acb3e062eb14cdb4f943d5a2f044b431, type: 3}
+  - {fileID: 21300000, guid: ea959303cd7f1164e9557573a56fac55, type: 3}
+  - {fileID: 21300000, guid: 1e9b22b8503477d4a8cb07ba28626440, type: 3}
+  - {fileID: 21300000, guid: 2d8ed7a861ab7cf4ea2e8b2bf9da2062, type: 3}
+  - {fileID: 21300000, guid: a82a17056a7263847819c79b64689b4f, type: 3}
+  - {fileID: 21300000, guid: e4e63082ce2e6114d9b32943f5ec2c46, type: 3}
+  - {fileID: 21300000, guid: 20f9a911ead2a9641a6e0263cf157752, type: 3}
+  - {fileID: 21300000, guid: 1914ebefacc05064688354765ff14af9, type: 3}
+  - {fileID: 21300000, guid: e65e5a33cd595d3499417ef09bb86100, type: 3}
   speed: 200

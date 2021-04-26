@@ -7,20 +7,25 @@ using UnityEditor;
 public class StraightFish : MonoBehaviour {
 
     public Transform fishT;
+    public SpriteRenderer fishRenderer;
 
     public Vector2 endPosition = new Vector2(1, 0);
     public float speed = 5;
+
+    private int spriteIndex = 0;
+    public Sprite[] sprites;
+
     private Vector2 startPosition;
-    private Vector3 startScale;
 
     private void Awake() {
         startPosition = fishT.localPosition;
-        startScale = fishT.localScale;
     }
 
     private static readonly WaitForSeconds pauseWait = new WaitForSeconds(0.2f);
+    public const float TIME_PER_SPRITE = 0.05f;
     private void OnEnable() {
         StartCoroutine(MoveRoutine());
+        StartCoroutine(SpriteRoutine());
 
         IEnumerator MoveRoutine() {
             Vector2 posDiff = endPosition - startPosition;
@@ -41,16 +46,25 @@ public class StraightFish : MonoBehaviour {
                 yield return pauseWait;
             }
         }
+
+        IEnumerator SpriteRoutine() {
+            float timeSinceLastSprite = 0;
+            while (true) {
+                if(timeSinceLastSprite >= TIME_PER_SPRITE) {
+                    spriteIndex = (spriteIndex + 1) % sprites.Length;
+                    fishRenderer.sprite = sprites[spriteIndex];
+                    timeSinceLastSprite -= TIME_PER_SPRITE;
+                }
+                timeSinceLastSprite += Time.deltaTime;
+                yield return null;
+            }
+        }
     }
 
     private void SetFishAngle(Vector2 start, Vector2 end) {
         float angle = (float)GetAngle(start, end);
-        bool flip = angle < 0;
-        if(startPosition.y > endPosition.y) {
-            flip = !flip;
-        }
-        fishT.localScale = flip ? startScale.SetY(-startScale.y) : startScale;
         fishT.localEulerAngles = new Vector3(0, 0, angle);
+        fishRenderer.flipY = (end - start).x < 0;
     }
 
     public static double GetAngle(Vector2 me, Vector2 target) {
