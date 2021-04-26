@@ -62,12 +62,6 @@ SpriteAtlas:
     - {fileID: 2800000, guid: d3d7f74fcb8bd79498e97a0204dce200, type: 3}
     - {fileID: 2800000, guid: 79c8ceaaa3d10b14bb68b5d00af6f216, type: 3}
     - {fileID: 2800000, guid: ea5dd79f57de38547a6468f238d67609, type: 3}
-    - {fileID: 2800000, guid: f26542c539d360440b1daa32d0605f46, type: 3}
-    - {fileID: 2800000, guid: ff35ebee7addc204fa26a328f35630b2, type: 3}
-    - {fileID: 2800000, guid: 287fb18e7f06e5940b1d57dc14c67c57, type: 3}
-    - {fileID: 2800000, guid: 52f2cafa96fa09a45b2252622243e569, type: 3}
-    - {fileID: 2800000, guid: 7b1c01b5679cdb241a452b81f00295e8, type: 3}
-    - {fileID: 2800000, guid: 00ad0be2bbf28ba4cae2c6cde2085f9e, type: 3}
     - {fileID: 2800000, guid: 0ad8cbadfc549fc408d7a98137471fa4, type: 3}
     - {fileID: 2800000, guid: 61e3989b3a9485649b56ee6f7bbf33cb, type: 3}
     - {fileID: 2800000, guid: fec535bff04df5245a1191405f0e9809, type: 3}
@@ -79,7 +73,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 200cf929e04974bb7a4552f96a30afb9, type: 3}
     - {fileID: 2800000, guid: 5b910e53ee2721e43ada67d46e231f53, type: 3}
     - {fileID: 2800000, guid: 154a66dee56e32c41a9061e528c98219, type: 3}
-    totalSpriteSurfaceArea: 3474614
+    totalSpriteSurfaceArea: 3043670
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -89,13 +83,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1e0dc4d009e0c35409cd9f2d464cedf0, type: 3}
   - {fileID: 21300000, guid: cffc717238214f242b035588b23f2816, type: 3}
   - {fileID: 21300000, guid: 8d7024920b336e54f83fc06892a5596c, type: 3}
-  - {fileID: 21300000, guid: 00ad0be2bbf28ba4cae2c6cde2085f9e, type: 3}
   - {fileID: 21300000, guid: 08cc3ee2e9bdae14090fa0b30c8fb2b1, type: 3}
   - {fileID: 21300000, guid: 5b910e53ee2721e43ada67d46e231f53, type: 3}
   - {fileID: 21300000, guid: d52f9673e4416f64da7a765896330bac, type: 3}
   - {fileID: 21300000, guid: 05b4b4958ac050541bea1a35d530afc1, type: 3}
-  - {fileID: 21300000, guid: 7b1c01b5679cdb241a452b81f00295e8, type: 3}
-  - {fileID: 21300000, guid: f26542c539d360440b1daa32d0605f46, type: 3}
   - {fileID: 21300000, guid: a66e5c463f483574b883409fda505780, type: 3}
   - {fileID: 21300000, guid: 0badbda6ca5ff6845b3baf806353c525, type: 3}
   - {fileID: 21300000, guid: 8945bae6be1e37b489c39e219fab71a1, type: 3}
@@ -108,13 +99,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 94451f894597747859c4486b2671ebfb, type: 3}
   - {fileID: 21300000, guid: c1ba182aaaf37294bbb2dd9bdf4f52ea, type: 3}
   - {fileID: 21300000, guid: 79c8ceaaa3d10b14bb68b5d00af6f216, type: 3}
-  - {fileID: 21300000, guid: 52f2cafa96fa09a45b2252622243e569, type: 3}
   - {fileID: 21300000, guid: 61e3989b3a9485649b56ee6f7bbf33cb, type: 3}
   - {fileID: 21300000, guid: ec853adb7daa6404fa9d353a5b4fef5d, type: 3}
   - {fileID: 21300000, guid: e5dfb75c75fa9434b9145c46c9581202, type: 3}
   - {fileID: 21300000, guid: 44f0447ced45c2c468882e9a4ad0f005, type: 3}
   - {fileID: 21300000, guid: 0ad8cbadfc549fc408d7a98137471fa4, type: 3}
-  - {fileID: 21300000, guid: 287fb18e7f06e5940b1d57dc14c67c57, type: 3}
   - {fileID: 9070772407020384590, guid: 154a66dee56e32c41a9061e528c98219, type: 3}
   - {fileID: -5358381369339716948, guid: 154a66dee56e32c41a9061e528c98219, type: 3}
   - {fileID: -296938050325579632, guid: 154a66dee56e32c41a9061e528c98219, type: 3}
@@ -127,7 +116,6 @@ SpriteAtlas:
   - {fileID: 6107993749158783840, guid: 154a66dee56e32c41a9061e528c98219, type: 3}
   - {fileID: -683868448456446953, guid: 154a66dee56e32c41a9061e528c98219, type: 3}
   - {fileID: -7982953528279373456, guid: 154a66dee56e32c41a9061e528c98219, type: 3}
-  - {fileID: 21300000, guid: ff35ebee7addc204fa26a328f35630b2, type: 3}
   - {fileID: 21300000, guid: d3d7f74fcb8bd79498e97a0204dce200, type: 3}
   - {fileID: 21300000, guid: ad2ebb5f44f54244fb92b3256a03e9fb, type: 3}
   - {fileID: 21300000, guid: ea5dd79f57de38547a6468f238d67609, type: 3}
@@ -137,13 +125,10 @@ SpriteAtlas:
   - Atlantis-3
   - Atlantis-1
   - Atlantis-2
-  - portrait-default
   - bg-mountains
   - water-color
   - SKY
   - plant-1
-  - portrait-default-wink
-  - portrait-2-wink
   - Atlantis-plant
   - Atlantis-plant-3
   - Atlantis-4
@@ -156,13 +141,11 @@ SpriteAtlas:
   - deathPoint
   - Atlantis-6
   - plant-3
-  - portrait-3
   - rock-2
   - coral-1
   - Atlantis-plant-4
   - Atlantis-plant-2
   - rock-1
-  - portrait-3-wink
   - Wave(513x190px)_10
   - Wave(513x190px)_11
   - Wave(513x190px)_9
@@ -175,7 +158,6 @@ SpriteAtlas:
   - Wave(513x190px)_4
   - Wave(513x190px)_7
   - Wave(513x190px)_6
-  - portrait-2
   - plant-2
   - coral-2
   - plant-4
