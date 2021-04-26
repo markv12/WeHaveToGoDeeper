@@ -17,7 +17,7 @@ public class DeathPointsSpawner : MonoBehaviour {
                 DeathPoint dp = deathPoints[i];
                 bool didSpawn = SpawnOnePoint(dp);
                 if (didSpawn)
-                    yield return new WaitForSecondsRealtime(0.02f);
+                    yield return new WaitForSecondsRealtime(0.035f);
             }
         }
 

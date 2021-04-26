@@ -23742,13 +23742,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824177914}
-  m_LocalRotation: {x: 0, y: 0, z: 0.11051496, w: 0.9938745}
-  m_LocalPosition: {x: -177.9, y: -283.4, z: 1560.1466}
+  m_LocalRotation: {x: 0, y: 0, z: -0.46792975, w: 0.8837657}
+  m_LocalPosition: {x: -117, y: -141, z: 1560.1466}
   m_LocalScale: {x: 1.31, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1672675516}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 12.69}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -55.8}
 --- !u!114 &824177916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23762,19 +23762,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText:
-  - 'player: It looks like it''s <b>opening up to something!</b><p:short> There''s...
-    <p:short>there''s <b>something down there!</b> <p:short>Professor, are you seeing
-    this? <p:short>Professor?
-
-    professor:<anim:shake><i>....zzzzzzZZZZZZZZzzzzzzzzz......</i></anim>
-
-    player:
-    .................
-
-    player: .....<anim:wave><b>Finally.</b></anim>
-
-    player:
-    This must be it! What the professor was looking for! The lost city... of <anim:wave><b><size=60>Atlantis!</size></b></anim>'
+  - 'professor: I... I recognize this passage from my research! This is it! We''re
+    here!'
   priority: 1
 --- !u!61 &824177917
 BoxCollider2D:
@@ -44540,104 +44529,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5068026011896862850, guid: b9743c231e73cdf42a5928eb762c9bde, type: 3}
   m_PrefabInstance: {fileID: 1609462756}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1612133940
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1612133941}
-  - component: {fileID: 1612133943}
-  - component: {fileID: 1612133942}
-  m_Layer: 0
-  m_Name: DialogueTrigger (10)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1612133941
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612133940}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7114129, w: 0.7027742}
-  m_LocalPosition: {x: -34.6, y: -267.8, z: 1560.1466}
-  m_LocalScale: {x: 1.31, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1672675516}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.7}
---- !u!114 &1612133942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612133940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4236c3774f99eb438219291b37d5922, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueText:
-  - 'professor: My, all this jostling has really...<p:normal> ruffled my feathers.<p:normal>
-
-    professor:
-    Pardon me, chap, but I might...<p:normal> have...<p:normal> to...
-
-    player:
-    If you throw up on me, I swear to god I will kick you out of the escape hatch.'
-  - 'professor: My word! The pressure does indeed build up this deep, does it not?
-    I''m feeling quite lightheaded! I...<p:normal> almost...'
-  - 'professor: Urp! I didn''t expect...<p:normal> such a bumpy ride!
-
-    player:
-    <size=25>Is he insulting my driving again...?</size>
-
-    professor: I might...
-    <p:normal>not... make....'
-  - 'professor: I must say, <p:normal>I''m feeling...<p:normal> a bit <b><anim:wave>green</anim></b>,
-    old sport.
-
-    player: If you''re going to throw up, could you at <i><anim:shake>least</anim></i>
-    face the other direction, <b><anim:shake>please?</anim></b>
-
-    professor: Must...<p:normal>
-    See...<p:normal> The Outside...
-
-    professor: <size=10>...for <b>science...</b></size>'
-  priority: 1
---- !u!61 &1612133943
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612133940}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 61.18, y: 5}
-  m_EdgeRadius: 0
 --- !u!1001 &1613505099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46130,8 +46021,8 @@ Transform:
   - {fileID: 1132584829}
   - {fileID: 971563226}
   - {fileID: 1294359420}
-  - {fileID: 1612133941}
   - {fileID: 824177915}
+  - {fileID: 1715380056}
   m_Father: {fileID: 1947511353}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48073,6 +47964,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4810ad54b3b1d3d408f25c2e1799c1ee, type: 3}
+--- !u!1 &1715380055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1715380056}
+  - component: {fileID: 1715380058}
+  - component: {fileID: 1715380057}
+  m_Layer: 0
+  m_Name: DialogueTrigger (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1715380056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715380055}
+  m_LocalRotation: {x: 0, y: 0, z: 0.2840153, w: 0.95881975}
+  m_LocalPosition: {x: -173, y: -339, z: 1560.1466}
+  m_LocalScale: {x: 1.31, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1672675516}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 33}
+--- !u!114 &1715380057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715380055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4236c3774f99eb438219291b37d5922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText:
+  - 'professor: <anim:wave><b>The hidden treasure of Atlantis!</b></anim> All mine!
+
+    player:
+    <anim:shake><b>Wait!</b></anim> I thought this journey was about <b>science!</b>
+
+    professor:
+    It is! This will fund my next, <anim:wave><b>bigger</b></anim> submarine! Then
+    we can go <b><size=55><anim:wave>EVEN DEEPER!</anim></size></b> Wahoo!!!'
+  priority: 1
+--- !u!61 &1715380058
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715380055}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 61.18, y: 5}
+  m_EdgeRadius: 0
 --- !u!1001 &1715407244
 PrefabInstance:
   m_ObjectHideFlags: 0

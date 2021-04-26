@@ -35,7 +35,7 @@ public class AudioManager : MonoBehaviour
 
 	public AudioClip hit;
 	public void PlayHitSound(float intensity) {
-		PlaySFX(hit, 0.06f * intensity, intensity * 0.2f);
+		PlaySFX(hit, 0.065f * intensity, intensity * 0.2f);
 	}
 
 	public AudioClip boost;
