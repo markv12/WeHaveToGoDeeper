@@ -165,7 +165,7 @@ player: <i><size=25>""Nearly""? Well, there's always next time...</size></i>"};
         Health = MAX_HEALTH;
         mainT.position = SessionData.lastCheckpoint;
         rgd.velocity = new Vector2(0.0f, 0.0f);
-
+        thruster.Release();
         CameraShaker.instance.ResetShake();
         // todo flash alpha as in "i-frames"
         //CanvasGroup cg = mainPlayer.GetComponent<CanvasGroup>();
