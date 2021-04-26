@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FishAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 100
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: d4c760213ab68264eb9319c980f5cd7d, type: 3}
+    - {fileID: 2800000, guid: 829cd94f973fd3d46af35cdb0023c8cd, type: 3}
+    - {fileID: 2800000, guid: 44d0689862fba0a49b8c4b0ec1d46e4b, type: 3}
+    - {fileID: 2800000, guid: acb3e062eb14cdb4f943d5a2f044b431, type: 3}
+    - {fileID: 2800000, guid: ea959303cd7f1164e9557573a56fac55, type: 3}
+    - {fileID: 2800000, guid: 1e9b22b8503477d4a8cb07ba28626440, type: 3}
+    - {fileID: 2800000, guid: 2d8ed7a861ab7cf4ea2e8b2bf9da2062, type: 3}
+    - {fileID: 2800000, guid: a82a17056a7263847819c79b64689b4f, type: 3}
+    - {fileID: 2800000, guid: e4e63082ce2e6114d9b32943f5ec2c46, type: 3}
+    - {fileID: 2800000, guid: 20f9a911ead2a9641a6e0263cf157752, type: 3}
+    - {fileID: 2800000, guid: 1914ebefacc05064688354765ff14af9, type: 3}
+    - {fileID: 2800000, guid: e65e5a33cd595d3499417ef09bb86100, type: 3}
+    - {fileID: 2800000, guid: 8b605a6287bc1a24f8d608c17caa105c, type: 3}
+    - {fileID: 2800000, guid: 10bfb0c5cd7f47f4981be2d522818ab7, type: 3}
+    - {fileID: 2800000, guid: 3aef0d7926cbb6040868a3bc4055f4d6, type: 3}
+    - {fileID: 2800000, guid: cb987c6777776bd47b434012bd21be06, type: 3}
+    - {fileID: 2800000, guid: 1dab519615849a44dba04ad121506c93, type: 3}
+    - {fileID: 2800000, guid: 8d0554c39f458ea40b648ad2e6629677, type: 3}
+    - {fileID: 2800000, guid: 4120c569c49dd7a40afa994af6d516e9, type: 3}
+    - {fileID: 2800000, guid: ba0789e609ad5e347a883df4fa1bdbb9, type: 3}
+    - {fileID: 2800000, guid: c45b012e1da2386458880987c9761276, type: 3}
+    - {fileID: 2800000, guid: 34871a6ed43792c4dbf6ab6284beb576, type: 3}
+    - {fileID: 2800000, guid: 954431790be5d9a4780d160c867d8e81, type: 3}
+    - {fileID: 2800000, guid: 2ec3b77df326cb54f9bb32df4fc452aa, type: 3}
+    totalSpriteSurfaceArea: 1947028
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 20f9a911ead2a9641a6e0263cf157752, type: 3}
+  - {fileID: 21300000, guid: d4c760213ab68264eb9319c980f5cd7d, type: 3}
+  - {fileID: 21300000, guid: acb3e062eb14cdb4f943d5a2f044b431, type: 3}
+  - {fileID: 21300000, guid: 8b605a6287bc1a24f8d608c17caa105c, type: 3}
+  - {fileID: 21300000, guid: e4e63082ce2e6114d9b32943f5ec2c46, type: 3}
+  - {fileID: 21300000, guid: ea959303cd7f1164e9557573a56fac55, type: 3}
+  - {fileID: 21300000, guid: e65e5a33cd595d3499417ef09bb86100, type: 3}
+  - {fileID: 21300000, guid: 8d0554c39f458ea40b648ad2e6629677, type: 3}
+  - {fileID: 21300000, guid: a82a17056a7263847819c79b64689b4f, type: 3}
+  - {fileID: 21300000, guid: 10bfb0c5cd7f47f4981be2d522818ab7, type: 3}
+  - {fileID: 21300000, guid: 1dab519615849a44dba04ad121506c93, type: 3}
+  - {fileID: 21300000, guid: ba0789e609ad5e347a883df4fa1bdbb9, type: 3}
+  - {fileID: 21300000, guid: cb987c6777776bd47b434012bd21be06, type: 3}
+  - {fileID: 21300000, guid: 44d0689862fba0a49b8c4b0ec1d46e4b, type: 3}
+  - {fileID: 21300000, guid: 2d8ed7a861ab7cf4ea2e8b2bf9da2062, type: 3}
+  - {fileID: 21300000, guid: 1e9b22b8503477d4a8cb07ba28626440, type: 3}
+  - {fileID: 21300000, guid: 4120c569c49dd7a40afa994af6d516e9, type: 3}
+  - {fileID: 21300000, guid: 954431790be5d9a4780d160c867d8e81, type: 3}
+  - {fileID: 21300000, guid: 3aef0d7926cbb6040868a3bc4055f4d6, type: 3}
+  - {fileID: 21300000, guid: 2ec3b77df326cb54f9bb32df4fc452aa, type: 3}
+  - {fileID: 21300000, guid: c45b012e1da2386458880987c9761276, type: 3}
+  - {fileID: 21300000, guid: 34871a6ed43792c4dbf6ab6284beb576, type: 3}
+  - {fileID: 21300000, guid: 829cd94f973fd3d46af35cdb0023c8cd, type: 3}
+  - {fileID: 21300000, guid: 1914ebefacc05064688354765ff14af9, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Fish-1_00009
+  - Fish-1_00000
+  - Fish-1_00003
+  - Fish-2_00000
+  - Fish-1_00008
+  - Fish-1_00004
+  - Fish-1_00011
+  - Fish-2_00005
+  - Fish-1_00007
+  - Fish-2_00001
+  - Fish-2_00004
+  - Fish-2_00007
+  - Fish-2_00003
+  - Fish-1_00002
+  - Fish-1_00006
+  - Fish-1_00005
+  - Fish-2_00006
+  - Fish-2_00010
+  - Fish-2_00002
+  - Fish-2_00011
+  - Fish-2_00008
+  - Fish-2_00009
+  - Fish-1_00001
+  - Fish-1_00010
+  m_RenderDataMap: {}
+  m_Tag: FishAtlas
+  m_IsVariant: 0
