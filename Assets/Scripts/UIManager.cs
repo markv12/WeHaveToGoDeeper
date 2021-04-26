@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
     public Image healthBar;
+    public Image healthBarChange;
     public RectTransform depthBar;
     public RectTransform depthIcon;
     public CanvasGroup canvasGroup;
@@ -42,10 +43,11 @@ public class UIManager : MonoBehaviour {
 
     private Coroutine healthBarRoutine = null;
     public void ShowHealthAmount(float amount) {
+        healthBar.fillAmount = amount;
         this.EnsureCoroutineStopped(ref healthBarRoutine);
-        float startAmount = healthBar.fillAmount;
+        float startAmount = healthBarChange.fillAmount;
         this.CreateAnimationRoutine(0.3f, delegate (float progress) {
-            healthBar.fillAmount = Easing.easeInOutSine(startAmount, amount, progress);
+            healthBarChange.fillAmount = Easing.easeInOutSine(startAmount, amount, progress);
         });
     }
 
