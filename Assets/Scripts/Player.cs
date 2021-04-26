@@ -114,7 +114,7 @@ player: ""<i>Flyyy~ me to the <anim:wave>mooooon</anim>, <p:normal>let me <anim:
         CameraShaker.instance.HitCameraShake(magnitude);
         Health -= damage;
         AudioManager.Instance.PlayHitSound(damage);
-        if (Random.value > 0.5f) {
+        if (Health > 0.0f && Random.value > 0.5f) {
             if (collision.gameObject.layer == fishLayer) {
                 string[] options = {@"professor: Did you see the <anim:shake>size</anim> of that beast?? <b><i>Terrifying!</i></b>",
 @"professor: <b><anim:shake><size=50>Gracious!</size></anim></b> What a brute!

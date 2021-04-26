@@ -18,6 +18,7 @@ public class DeathUIManager : MonoBehaviour {
 
     void Update() {
         if (Input.GetKey(KeyCode.Space)) {
+            if (!shown) return;
             Hide();
             Player.mainPlayer.Respawn();
         }
