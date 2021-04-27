@@ -109,8 +109,8 @@ player: ""<i>Flyyy~ me to the <anim:wave>mooooon</anim>, <p:normal>let me <anim:
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        float magnitude = Mathf.InverseLerp(0, 25, rgd.velocity.magnitude);
-        int damage = (int)Mathf.Lerp(4.2f, 10.1f, magnitude);
+        float magnitude = Mathf.InverseLerp(0, 30, rgd.velocity.magnitude);
+        int damage = (int)Mathf.Lerp(4.5f, 10.1f, magnitude);
         CameraShaker.instance.HitCameraShake(magnitude);
         Health -= damage;
         AudioManager.Instance.PlayHitSound(damage);
