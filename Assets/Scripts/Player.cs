@@ -108,15 +108,26 @@ player: ""<i>Flyyy~ me to the <anim:wave>mooooon</anim>, <p:normal>let me <anim:
         rgd.velocity *= 1 - (Time.deltaTime * brakeStrength);
     }
 
+    private float lastHitTime = 0;
+    private const float MIN_TIME_BETWEEN_HITS = 1f;
     private void OnCollisionEnter2D(Collision2D collision) {
         float magnitude = Mathf.InverseLerp(0, 30, rgd.velocity.magnitude);
         int damage = (int)Mathf.Lerp(4.5f, 10.1f, magnitude);
         CameraShaker.instance.HitCameraShake(magnitude);
-        Health -= damage;
         AudioManager.Instance.PlayHitSound(damage);
-        if (Health > 0.0f && Random.value > 0.5f) {
-            if (collision.gameObject.layer == fishLayer) {
-                string[] options = {@"professor: Did you see the <anim:shake>size</anim> of that beast?? <b><i>Terrifying!</i></b>",
+        if ((Time.time - lastHitTime) > MIN_TIME_BETWEEN_HITS) {
+            lastHitTime = Time.time;
+            Health -= damage;
+            if (Health > 0.0f && Random.value > 0.5f) {
+                PlayDialogueMessage(collision);
+            }
+        }
+    }
+
+    private void PlayDialogueMessage(Collision2D collision)
+    {
+        if (collision.gameObject.layer == fishLayer) {
+            string[] options = {@"professor: Did you see the <anim:shake>size</anim> of that beast?? <b><i>Terrifying!</i></b>",
 @"professor: <b><anim:shake><size=45>Gracious!</size></anim></b> What a brute!
 player: You just spit on me.",
 @"professor: I could have dodged that with my eyes closed!",
@@ -125,11 +136,11 @@ player: You just spit on me.",
 @"professor: Yowch!",
 @"professor: You <anim:shake>clumsy cod!</anim> And I don't mean the fish!",
             };
-                string choice = options[Random.Range(0, options.Length)];
-                UIManager.instance.ShowMessage(choice);
-            }
-            else {
-                string[] options = {@"professor: Oof! Careful, fool!
+            string choice = options[Random.Range(0, options.Length)];
+            UIManager.instance.ShowMessage(choice);
+        }
+        else {
+            string[] options = {@"professor: Oof! Careful, fool!
 player: <size=25>Takes one to know one...</size>",
 @"professor: Watch the stern! <p:normal>The <anim:shake>STERN!!</anim>",
 @"professor: That's a <b>wall!</b> Have you ever even driven this submarine before?
@@ -146,9 +157,8 @@ player: <size=25>Learn some insults from this century, maybe?</size>",
 @"professor: You <anim:shake>clumsy cod!</anim>",
 @"professor: Oof! You nearly knocked me off my feet with that one!
 player: <i><size=25>""Nearly""? Well, there's always next time...</size></i>"};
-                string choice = options[Random.Range(0, options.Length)];
-                UIManager.instance.ShowMessage(choice);
-            }
+            string choice = options[Random.Range(0, options.Length)];
+            UIManager.instance.ShowMessage(choice);
         }
     }
 
