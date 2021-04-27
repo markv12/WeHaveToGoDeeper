@@ -5,7 +5,7 @@ using UnityEngine;
 public class HighScoreList : MonoBehaviour {
 
     public GameObject highScoreEntry;
-    public float spacing = 25.0f;
+    private float spacing = 50.0f;
     public CanvasGroup around;
     public Transform aroundTransform;
 
@@ -17,7 +17,7 @@ public class HighScoreList : MonoBehaviour {
 
             highScores.ForEach(delegate (HighScore hs) {
                 GameObject entry = Instantiate(highScoreEntry, gameObject.transform);
-                entry.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + offset, 0.0f);
+                entry.GetComponent<RectTransform>().anchoredPosition = new Vector3(0f, offset, 0.0f);
                 offset -= spacing;
 
                 entry.transform.Find("Player Name").gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = hs.name;
@@ -38,7 +38,7 @@ public class HighScoreList : MonoBehaviour {
 
             scores.ForEach(delegate (HighScore hs) {
                 GameObject entry = Instantiate(highScoreEntry, aroundTransform);
-                entry.transform.position = new Vector3(aroundTransform.position.x, aroundTransform.position.y + offset, 0.0f);
+                entry.GetComponent<RectTransform>().anchoredPosition = new Vector3(0f, offset, 0.0f);
                 offset -= spacing;
 
                 entry.transform.Find("Player Name").gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = hs.name;

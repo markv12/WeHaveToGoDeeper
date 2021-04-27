@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highScoreEntry: {fileID: 7843974764256397005, guid: 4e0289ee34d204741b9df31ca9b7a82d, type: 3}
-  spacing: 25
+  spacing: 50
   around: {fileID: 0}
   aroundTransform: {fileID: 0}
 --- !u!1 &365367388
@@ -4107,7 +4107,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
+    rgba: 2348810239
   m_fontColor: {r: 1, g: 1, b: 1, a: 0.54509807}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -4191,7 +4191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3, y: -502}
+  m_AnchoredPosition: {x: 532, y: -442}
   m_SizeDelta: {x: -1320, y: -963.9061}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1541380229
