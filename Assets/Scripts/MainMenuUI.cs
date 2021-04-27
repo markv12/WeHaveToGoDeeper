@@ -55,7 +55,7 @@ public class MainMenuUI : MonoBehaviour {
             return;
         }
 
-        SessionData.playerName = nameInput.text.Replace('?', '¿').Replace('/', '-').Replace('&', '+');
+        SessionData.playerName = nameInput.text.Replace('?', '¿').Replace('/', '-').Replace('&', '+').ToLower();
         SceneLoader.Instance.LoadScene("GameScene");
     }
 
