@@ -135,7 +135,7 @@ public class UIManager : MonoBehaviour {
     private float GetWaitTimeForText(string theText) {
         int charCount = theText.Length;
         float amount = Mathf.InverseLerp(0f, 80f, charCount);
-        return 0.5f + Mathf.Lerp(0f, 1.75f, amount);
+        return 1f + Mathf.Lerp(0f, 3f, amount);
     }
 
     public bool IsDialoguePlaying {
